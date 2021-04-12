@@ -6,5 +6,6 @@
         "titleBar.inactiveForeground": "#000000CC",
         "titleBar.activeBackground": "#78E2F1",
         "titleBar.inactiveBackground": "#78E2F1"
-    }
+    },
+    "files.eol": "\n"
 }
