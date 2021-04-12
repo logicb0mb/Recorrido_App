@@ -1,35 +1,35 @@
 import React from 'react';
+import styled from 'styled-components/native';
+
 import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import ToursInfo from '../components/tour-info.component';
 
-const ToursScreen = () => {
+import TourInfoCard from '../components/tour-info-card.component';
+
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  margin-top: ${StatusBar.currentHeight}px;
+`;
+
+const SearchContainer = styled.View`
+  padding: 16px;
+`;
+
+const TourListContainer = styled.View`
+  flex: 1;
+  padding: 16px;
+  background-color: blue;
+`;
+
+export const ToursScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.search}>
-        <Searchbar placeholder="Search for Tours" />
-      </View>
-      <View style={styles.list}>
-        <ToursInfo />
-      </View>
-    </SafeAreaView>
+    <SafeArea>
+      <SearchContainer>
+        <Searchbar placeholder="Search" />
+      </SearchContainer>
+      <TourListContainer>
+        <TourInfoCard />
+      </TourListContainer>
+    </SafeArea>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight,
-  },
-  search: {
-    padding: 16,
-    backgroundColor: 'green',
-  },
-  list: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: 'orangered',
-  },
-});
-
-export default ToursScreen;
