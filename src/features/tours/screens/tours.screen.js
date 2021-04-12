@@ -8,17 +8,16 @@ import TourInfoCard from '../components/tour-info-card.component';
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  margin-top: ${StatusBar.currentHeight}px;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
 const SearchContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const TourListContainer = styled.View`
   flex: 1;
-  padding: 16px;
-  background-color: blue;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const ToursScreen = () => {
