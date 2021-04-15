@@ -18,13 +18,19 @@ const SearchContainer = styled.View`
 const TourListContainer = styled.View`
   flex: 1;
   padding: ${(props) => props.theme.space[3]};
+  padding-top: ${(props) => props.theme.space[2]};
 `;
 
 export const ToursScreen = () => {
   return (
     <SafeArea>
       <SearchContainer>
-        <Searchbar placeholder="Search" />
+        <Searchbar
+          placeholder="Search"
+          style={{ backgroundColor: '#050f28', textDecorationColor: '#fff' }}
+          iconColor="#C5295A"
+          placeholderTextColor="#fff"
+        />
       </SearchContainer>
       <TourListContainer>
         <TourInfoCard />

@@ -1,6 +1,7 @@
 export const fonts = {
   body: 'Oswald_400Regular',
   heading: 'Lato_400Regular',
+  latoLight: 'Lato_300Light',
   monospace: 'Oswald_400Regular',
 };
 
