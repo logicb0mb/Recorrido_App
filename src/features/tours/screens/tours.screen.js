@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
-import TourInfoCard from '../components/tour-info-card.component';
+import TourInfoCard from '../components/tourCard/tour-infocard.component';
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
-const SearchContainer = styled.View`
+const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-const TourListContainer = styled.View`
+const TourListContainer = styled(View)`
   flex: 1;
   padding: ${(props) => props.theme.space[3]};
   padding-top: ${(props) => props.theme.space[2]};
