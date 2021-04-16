@@ -8,9 +8,11 @@ import calendar from '../../../../assets/img/svgs/calendar.js';
 import flag from '../../../../assets/img/svgs/flag.js';
 import user from '../../../../assets/img/svgs/user.js';
 
-const CardDetails = styled.View``;
+const CardDetails = styled.View`
+  margin-top: -15px;
+`;
 const SubHeading = styled.Text`
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 700;
   font-family: ${(props) => props.theme.fonts.body};
@@ -24,12 +26,14 @@ const CardText = styled.Text`
   color: #777;
   margin-top: -10px;
   margin-bottom: 0.75px;
-  font-family: ${(props) => props.theme.fonts.body};
+  font-family: ${(props) => props.theme.fonts.heading};
 `;
 
 const CardTextInner4Blocks = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
+  font-family: ${(props) => props.theme.fonts.heading};
   color: #777;
+  font-weight: 400;
+  letter-spacing: 1px;
 `;
 
 export const TourInfoCardDetails = ({ tour }) => {
@@ -95,7 +99,6 @@ export const TourInfoCardDetails = ({ tour }) => {
         // flex: 1,
         width: '100%',
         height: '40%',
-        backgroundColor: 'pink',
         justifyContent: 'space-between',
         paddingVertical: 25,
         paddingHorizontal: 30,
@@ -151,9 +154,9 @@ export const TourInfoCardDetails = ({ tour }) => {
         >
           <SvgXml
             xml={mapPin}
-            width={20}
-            height={20}
-            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 4 }}
+            width={25}
+            height={25}
+            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 10 }}
           />
           <CardTextInner4Blocks>
             {startLocation.description}
@@ -172,9 +175,9 @@ export const TourInfoCardDetails = ({ tour }) => {
         >
           <SvgXml
             xml={calendar}
-            width={20}
-            height={20}
-            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 4 }}
+            width={25}
+            height={25}
+            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 10 }}
           />
           <CardTextInner4Blocks>
             {/* {startDates[0].toLocaleString('en-in', {
@@ -209,9 +212,9 @@ export const TourInfoCardDetails = ({ tour }) => {
         >
           <SvgXml
             xml={flag}
-            width={20}
-            height={20}
-            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 4 }}
+            width={25}
+            height={25}
+            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 10 }}
           />
           <CardTextInner4Blocks>{locations.length} stops</CardTextInner4Blocks>
         </View>
@@ -228,9 +231,9 @@ export const TourInfoCardDetails = ({ tour }) => {
         >
           <SvgXml
             xml={user}
-            width={20}
-            height={20}
-            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 4 }}
+            width={25}
+            height={25}
+            style={{ color: '#44D8FD', alignSelf: 'center', marginRight: 10 }}
           />
           <CardTextInner4Blocks>{maxGroupSize} people</CardTextInner4Blocks>
         </View>

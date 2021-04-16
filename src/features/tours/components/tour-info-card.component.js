@@ -1,32 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Text, View, Image as RNImage } from 'react-native';
+import { StyleSheet, Text, Button, View, Image as RNImage } from 'react-native';
 
 import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 
 import Svg, {
-  Circle,
-  Ellipse,
   G,
-  TSpan,
-  TextPath,
-  Path,
   Polygon,
-  Polyline,
-  Line,
   Rect,
-  Use,
-  Symbol,
   Image as SVGImage,
   Defs,
   LinearGradient,
-  RadialGradient,
   Stop,
   ClipPath,
-  Pattern,
-  Mask,
-  SvgXml,
 } from 'react-native-svg';
 
 import TourInfoCardDetails from './tour-infocard-details.component';
@@ -81,8 +68,34 @@ const CardHeadingGradientContainer = styled(ExpoLinearGradient)`
 `;
 
 const CardFooter = styled(View)`
-  padding: 25px 30px;
-  background-color: red;
+  padding: 30px 30px;
+  flex: 1;
+  background-color: #f7f7f7;
+  width: '100%';
+`;
+
+const FooterValue = styled.Text`
+  font-size: 15px;
+  font-weight: 700;
+  font-family: ${(props) => props.theme.fonts.body};
+  color: #777;
+`;
+
+const FooterText = styled.Text`
+  color: #999;
+  font-family: ${(props) => props.theme.fonts.latoLight};
+`;
+
+const DetailsButton = styled(Button)`
+  font-family: ${(props) => props.theme.fonts.latoLight};
+  border-radius: 50px;
+  align-self: center;
+
+  text-transform: uppercase;
+
+  font-weight: 400;
+  border: none;
+  padding: 12.5px 30px !important;
 `;
 
 const TourInfoCard = ({ tour = {} }) => {
@@ -233,7 +246,77 @@ const TourInfoCard = ({ tour = {} }) => {
 
         <TourInfoCardDetails tour={tour} />
 
-        <CardFooter></CardFooter>
+        <CardFooter
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '100%',
+            alignItems: 'flex-start',
+            flexWrap: 'nowrap',
+          }}
+        >
+          <View
+            style={{
+              width: '39%',
+              height: '100%',
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+              flexGrow: 0,
+            }}
+          >
+            <View
+              style={{
+                // flex: 1,
+                width: '100%',
+                height: '45%',
+                flexGrow: 1,
+                flexDirection: 'row',
+              }}
+            >
+              <FooterText>
+                <FooterValue>${price}</FooterValue> per person
+              </FooterText>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                width: '100%',
+                height: '45%',
+              }}
+            >
+              <FooterText>
+                <FooterValue>{ratingsAverage}</FooterValue> Rating (
+                {ratingsQuantity})
+              </FooterText>
+            </View>
+          </View>
+          {/* <View
+            style={{
+              flex: 1,
+              width: '55%',
+              height: '100%',
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              flexGrow: 1,
+            }}
+          > */}
+          {/* <View
+              style={{
+                flex: 1,
+                width: '100%',
+                height: '100%',
+                flexGrow: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                backgroundColor: 'yellow',
+              }}
+            > */}
+          <DetailsButton title="Details" color="#45D8FC" />
+          {/* </View> */}
+          {/* </View> */}
+        </CardFooter>
       </TourCard>
     </>
   );
