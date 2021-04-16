@@ -3,21 +3,19 @@ import styled from 'styled-components/native';
 
 import { Text } from '../../../../components/typography/text.component';
 export const CardFooter = styled(View)`
-  padding: 30px 30px;
-  flex: 1;
+  padding: 25px 30px;
   background-color: #f7f7f7;
-  width: '100%';
 
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  ${'' /* width: 100%; */}
   align-items: flex-start;
   flex-wrap: nowrap;
 `;
 
 export const CardFooterTextContainer = styled(View)`
-  width: 39%;
+  width: 45%;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;

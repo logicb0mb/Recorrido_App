@@ -1,10 +1,10 @@
 import React from 'react';
+import { SafeAreaView, FlatList, StatusBar, View } from 'react-native';
+import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components/native';
 
-import { SafeAreaView, StatusBar, View } from 'react-native';
-import { Searchbar } from 'react-native-paper';
-
 import TourInfoCard from '../components/tourCard/tour-infocard.component';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -15,10 +15,12 @@ const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-const TourListContainer = styled(View)`
-  flex: 1;
-  padding: ${(props) => props.theme.space[3]};
-  padding-top: ${(props) => props.theme.space[2]};
+const TourList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})`
+  height: 100%;
 `;
 
 export const ToursScreen = () => {
@@ -32,9 +34,18 @@ export const ToursScreen = () => {
           placeholderTextColor="#fff"
         />
       </SearchContainer>
-      <TourListContainer>
-        <TourInfoCard />
-      </TourListContainer>
+      <TourList
+        data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }, { name: 5 }]}
+        renderItem={() => (
+          <Spacer position="bottom" size="large">
+            <TourInfoCard />
+          </Spacer>
+        )}
+        keyExtractor={(item) => item.name}
+        centerContent={true}
+        // horizontal
+      />
+      {/* <TourInfoCard /> */}
     </SafeArea>
   );
 };

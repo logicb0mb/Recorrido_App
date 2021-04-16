@@ -7,11 +7,11 @@ import TourInfoCardDetails from './tour-infocard-details.component';
 import TourInfoCardFooter from './tour-infocard__footer.component';
 
 const TourCard = styled(View)`
-  background-color: white;
+  background-color: #fff;
   position: relative;
   border-radius: 4px;
-  flex: 0.87;
-  ${'' /* height: 534.6px; */}
+  flex: 1;
+  height: 520px;
 `;
 
 const TourInfoCard = ({ tour = {} }) => {
@@ -74,7 +74,7 @@ const TourInfoCard = ({ tour = {} }) => {
 
   return (
     <>
-      <TourCard elevation={3}>
+      <TourCard elevation={3} borderRadius={4}>
         <TourInfoCardHeader tour={tour} />
         <TourInfoCardDetails tour={tour} />
         <TourInfoCardFooter tour={tour} />
