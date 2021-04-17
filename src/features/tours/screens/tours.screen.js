@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView, FlatList, StatusBar, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components/native';
@@ -6,6 +6,8 @@ import styled from 'styled-components/native';
 import TourInfoCard from '../components/tourCard/tour-infocard.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utility/safe-area.component';
+
+import { ToursContext } from '../../../services/toursRequest.context';
 
 const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
@@ -20,6 +22,8 @@ const TourList = styled(FlatList).attrs({
 `;
 
 export const ToursScreen = () => {
+  const tourContext = useContext(ToursContext);
+  console.log(tourContext);
   return (
     <SafeArea>
       <SearchContainer>
@@ -31,7 +35,7 @@ export const ToursScreen = () => {
         />
       </SearchContainer>
       <TourList
-        data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }, { name: 5 }]}
+        data={tourContext.tours}
         renderItem={() => (
           <Spacer position="bottom" size="large">
             <TourInfoCard />

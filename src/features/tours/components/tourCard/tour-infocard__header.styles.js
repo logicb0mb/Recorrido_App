@@ -8,20 +8,21 @@ import { Text } from '../../../../components/typography/text.component';
 
 export const CardHeader = styled(View)`
   position: relative;
+  ${'' /* height: 225px; */}
+  ${'' /* width: 100%; */}
   height: 225px;
-  ${'' /* flex: 0.44; */}
 `;
 
 export const TourCardCover = styled(SVGImage)`
   padding: ${(props) => props.theme.space[3]};
   background-color: ${(props) => props.theme.colors.bg.primary};
-  width: 100%;
-  height: 200px;
+  ${'' /* width: 100%;
+  height: 200px; */}
   position: relative;
 
   ${'' /* Added Styles */}
-  height: 100%;
-  width: 100%;
+  ${'' /* height: 100%;
+  width: 100%; */}
 `;
 
 export const HeadingTertiary = styled(Text)`

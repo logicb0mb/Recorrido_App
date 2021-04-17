@@ -21,6 +21,8 @@ import { theme } from './src/infrastructure/theme/index';
 import { ToursScreen } from './src/features/tours/screens/tours.screen';
 import { SafeArea } from './src/components/utility/safe-area.component';
 
+import { ToursContextProvider } from './src/services/toursRequest.context';
+
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
@@ -59,19 +61,21 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={createScreenOptions}
-            tabBarOptions={{
-              activeTintColor: '#45d9fd',
-              inactiveTintColor: '#040E28',
-            }}
-          >
-            <Tab.Screen name="Tours" component={ToursScreen} />
-            <Tab.Screen name="Map" component={Map} />
-            <Tab.Screen name="Settings" component={Settings} />
-          </Tab.Navigator>
-        </NavigationContainer>
+        <ToursContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={createScreenOptions}
+              tabBarOptions={{
+                activeTintColor: '#45d9fd',
+                inactiveTintColor: '#040E28',
+              }}
+            >
+              <Tab.Screen name="Tours" component={ToursScreen} />
+              <Tab.Screen name="Map" component={Map} />
+              <Tab.Screen name="Settings" component={Settings} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </ToursContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

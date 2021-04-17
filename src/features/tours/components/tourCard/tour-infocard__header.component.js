@@ -98,13 +98,13 @@ export const TourInfoCardHeader = ({ tour }) => {
       <Svg height="100%" width="100%" preserveAspectRatio="xMinYMin slice">
         <Defs>
           <LinearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0" stopColor="#45d9fd" stopOpacity="1" />
-            <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="1" />
+            <Stop offset="0" stopColor="#45d9fd" stopOpacity="0.7" />
+            <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="0.8" />
           </LinearGradient>
 
           <ClipPath id="clip">
             <G scale="1">
-              <Polygon points="0,0 361,0 361,170 0,200" />
+              <Polygon points="0,0 400,0 400,185 0,220" />
             </G>
           </ClipPath>
         </Defs>
