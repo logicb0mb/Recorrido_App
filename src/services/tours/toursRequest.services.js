@@ -10,7 +10,7 @@ export const toursRequest = async () => {
   try {
     // 1) Get tours data from API
     const response = await axios.get(
-      'https://recorrido-shreyas.herokuapp.com/api/v1/tours'
+      'https://recorrido-shreyas.herokuapp.com/api/v1/tours?sort=-ratingsAverage'
     );
 
     // console.log(response);
@@ -25,6 +25,18 @@ export const toursRequest = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const tourTransform = (results) => {
+  const mappedResults = results.map((tourItem) => {
+    const imageCoverUri = `../../../../../assets/img/tours/${tourItem.imageCover}`;
+    return {
+      ...tourItem,
+      imageCoverUri,
+    };
+  });
+
+  return mappedResults;
 };
 
 // toursRequest()

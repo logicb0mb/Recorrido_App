@@ -21,7 +21,7 @@ import { theme } from './src/infrastructure/theme/index';
 import { ToursScreen } from './src/features/tours/screens/tours.screen';
 import { SafeArea } from './src/components/utility/safe-area.component';
 
-import { ToursContextProvider } from './src/services/toursRequest.context';
+import { ToursContextProvider } from './src/services/tours/toursRequest.context';
 
 const Tab = createBottomTabNavigator();
 

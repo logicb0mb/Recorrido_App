@@ -20,68 +20,11 @@ import {
 } from './tour-infocard__header.styles';
 
 export const TourInfoCardHeader = ({ tour }) => {
-  const {
-    startLocation = {
-      description: 'Miami, USA',
-      type: 'Point',
-      coordinates: [-80.185942, 25.774772],
-      address: '301 Biscayne Blvd, Miami, FL 33132, USA',
-    },
-    ratingsAverage = 4.8,
-    ratingsQuantity = 6,
-    images = ['tour-2-1.jpg', 'tour-2-2.jpg', 'tour-2-3.jpg'],
-    startDates = [
-      '2021-06-19T09:00:00.000Z',
-      '2021-07-20T09:00:00.000Z',
-      '2021-08-18T09:00:00.000Z',
-    ],
-    _id = '5c88fa8cf4afda39709c2955',
-    name = 'The Sea Explorer',
-    duration = 7,
-    maxGroupSize = 15,
-    difficulty = 'medium',
-    guides = ['5c8a22c62f8fb814b56fa18b', '5c8a1f4e2f8fb814b56fa185'],
-    price = 497,
-    summary = 'Exploring the jaw-dropping US east coast by foot and by boat',
-    description = 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    imageCover = 'tour-2-cover.jpg',
-    locations = [
-      {
-        _id: '5c88fa8cf4afda39709c2959',
-        description: 'Lummus Park Beach',
-        type: 'Point',
-        coordinates: [-80.128473, 25.781842],
-        day: 1,
-      },
-      {
-        _id: '5c88fa8cf4afda39709c2958',
-        description: 'Islamorada',
-        type: 'Point',
-        coordinates: [-80.647885, 24.909047],
-        day: 2,
-      },
-      {
-        _id: '5c88fa8cf4afda39709c2957',
-        description: 'Sombrero Beach',
-        type: 'Point',
-        coordinates: [-81.0784, 24.707496],
-        day: 3,
-      },
-      {
-        _id: '5c88fa8cf4afda39709c2956',
-        description: 'West Key',
-        type: 'Point',
-        coordinates: [-81.768719, 24.552242],
-        day: 5,
-      },
-    ],
-  } = tour;
-
   const nameFirstPart = '';
   const nameSecondPart = '';
 
   const nameSplitter = (nameFirstPartParameter, nameSecondPartParameter) => {
-    let s = name.split(/\s+/);
+    let s = tour.name.split(/\s+/);
     // console.log(s);
     nameFirstPartParameter = s[0] + ' ' + s[1];
     // console.log(nameFirstPart);
@@ -92,7 +35,7 @@ export const TourInfoCardHeader = ({ tour }) => {
   };
 
   const nameArray = nameSplitter(nameFirstPart, nameSecondPart);
-
+  //   const localImage = require(tour.imageCoverUri);
   return (
     <CardHeader>
       <Svg height="100%" width="100%" preserveAspectRatio="xMinYMin slice">
@@ -112,10 +55,15 @@ export const TourInfoCardHeader = ({ tour }) => {
           width="100%"
           height="100%"
           preserveAspectRatio="xMidYMid slice"
+          //   href={require(imageCoverUri)}
           href={{
             uri:
-              'https://recorrido-shreyas.herokuapp.com/img/tours/' + imageCover,
+              'https://recorrido-shreyas.herokuapp.com/img/tours/' +
+              tour.imageCover,
           }}
+          // href={{
+          //     uri: tour.imageCoverUri,
+          //   }}
           resizemode="cover"
           fill="url(#grad)"
           clipPath="url(#clip)"
