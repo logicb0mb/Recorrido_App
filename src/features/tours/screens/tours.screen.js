@@ -9,6 +9,7 @@ import { SafeArea } from '../../../components/utility/safe-area.component';
 
 import { ToursContext } from '../../../services/tours/toursRequest.context';
 import LottieLoading from '../../../components/utility/lottie-loading.component';
+import LottieError from '../../../components/utility/lottie-error.component';
 
 const TourList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -33,8 +34,8 @@ export const ToursScreen = () => {
       {isLoading && <LottieLoading />}
       <Search />
       {displayError && !isLoading ? (
-        <View>
-          <Text>Error : Not Tour Found for this location</Text>
+        <View style={{ width: '100%', height: '100%' }}>
+          <LottieError errorMessage="No Tour Found for this location" />
         </View>
       ) : (
         <TourList
