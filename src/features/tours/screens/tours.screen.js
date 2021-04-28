@@ -22,10 +22,10 @@ export const ToursScreen = () => {
   const { tours, error, isLoading } = useContext(ToursContext);
   let displayError = false;
   //   console.log(tours);
-  console.log(error);
+  //   console.log(error);
   if (error === 'No tour found for this location') {
     displayError = true;
-    console.log(displayError);
+    // console.log(displayError);
   }
 
   return (
@@ -34,7 +34,7 @@ export const ToursScreen = () => {
       <Search />
       {displayError && !isLoading ? (
         <View>
-          <Text>Error</Text>
+          <Text>Error : Not Tour Found for this location</Text>
         </View>
       ) : (
         <TourList

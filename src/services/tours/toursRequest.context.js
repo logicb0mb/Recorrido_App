@@ -64,7 +64,7 @@ export const ToursContextProvider = ({ children }) => {
         locationString = 'alltours';
       }
       console.log(`location changed!`);
-      console.log(locationString);
+      //   console.log(locationString);
       retrieveTours(locationString);
     }
   }, [location]);

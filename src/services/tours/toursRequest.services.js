@@ -28,7 +28,7 @@ export const toursRequest = async (location) => {
         `https://recorrido-shreyas.herokuapp.com/api/v1/tours/tours-within/400/center/${location}/unit/mi`
       );
       const toursWithin = response.data.data.data;
-      console.log(toursWithin);
+      //   console.log(toursWithin);
       return toursWithin;
     }
   } catch (error) {
