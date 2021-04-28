@@ -1,6 +1,14 @@
-import React, { useState, createContext, useEffect, useMemo } from 'react';
+import React, {
+  useState,
+  createContext,
+  useEffect,
+  useMemo,
+  useContext,
+} from 'react';
 
 import { toursRequest, tourTransform } from './toursRequest.services';
+
+import { LocationContext } from '../location/location.context';
 
 export const ToursContext = createContext();
 
@@ -8,6 +16,7 @@ export const ToursContextProvider = ({ children }) => {
   const [tours, setTours] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { location } = useContext(LocationContext);
 
   //   const retrieveTours = () => {
   //     setIsLoading(true);
@@ -24,18 +33,23 @@ export const ToursContextProvider = ({ children }) => {
   //       });
   //   };
 
-  const retrieveTours = async () => {
+  const retrieveTours = async (loc) => {
     try {
       setIsLoading(true);
-      const apiResponse = await toursRequest();
+      setTours([]);
+      const apiResponse = await toursRequest(loc);
 
-      if (Array.isArray(apiResponse) && apiResponse.length) {
+      if (Array.isArray(apiResponse) && apiResponse.length > 0) {
         // array exists and is not empty
         const results = tourTransform(apiResponse);
-
         setTours(results);
         setIsLoading(false);
+        setError(null);
         // console.log(results);
+      } else {
+        // console.log('No tour found for this location');
+        setIsLoading(false);
+        setError('No tour found for this location');
       }
     } catch (err) {
       setIsLoading(false);
@@ -44,8 +58,16 @@ export const ToursContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    retrieveTours();
-  }, []);
+    if (location) {
+      let locationString = `${location.lat},${location.lng}`;
+      if (location === 'alltours') {
+        locationString = 'alltours';
+      }
+      console.log(`location changed!`);
+      console.log(locationString);
+      retrieveTours(locationString);
+    }
+  }, [location]);
 
   return (
     <ToursContext.Provider

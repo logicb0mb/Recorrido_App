@@ -5,7 +5,7 @@ import { locationRequest, locationTransform } from './location.service';
 export const LocationContext = createContext();
 
 export const LocationContextProvider = ({ children }) => {
-  const [keyword, setKeyword] = useState('San Francisco');
+  const [keyword, setKeyword] = useState('');
   const [location, setLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,7 +14,9 @@ export const LocationContextProvider = ({ children }) => {
     setIsLoading(true);
     setKeyword(searchKeyword);
     if (!searchKeyword.length) {
-      // dont do anything
+      setIsLoading(false);
+      setLocation('alltours');
+      console.log(`Hey inital state`);
       return;
     }
     locationRequest(searchKeyword.toLowerCase())
@@ -27,7 +29,7 @@ export const LocationContextProvider = ({ children }) => {
       .catch((err) => {
         setIsLoading(false);
         setError(err);
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { SafeAreaView, FlatList, StatusBar, View } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { SafeAreaView, FlatList, StatusBar, View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 import TourInfoCard from '../components/tourCard/tour-infocard.component';
@@ -20,26 +20,39 @@ const TourList = styled(FlatList).attrs({
 
 export const ToursScreen = () => {
   const { tours, error, isLoading } = useContext(ToursContext);
+  let displayError = false;
   //   console.log(tours);
+  console.log(error);
+  if (error === 'No tour found for this location') {
+    displayError = true;
+    console.log(displayError);
+  }
+
   return (
     <SafeArea>
       {isLoading && <LottieLoading />}
       <Search />
-      <TourList
-        data={tours}
-        renderItem={({ item }) => {
-          //   console.log(item);
-          return (
-            <Spacer position="bottom" size="large">
-              <TourInfoCard tour={item} />
-            </Spacer>
-          );
-        }}
-        keyExtractor={(item) => item.name}
-        initialNumToRender={10}
-        maxToRenderPerBatch={18}
-        // horizontal
-      />
+      {displayError && !isLoading ? (
+        <View>
+          <Text>Error</Text>
+        </View>
+      ) : (
+        <TourList
+          data={tours}
+          renderItem={({ item }) => {
+            //   console.log(item);
+            return (
+              <Spacer position="bottom" size="large">
+                <TourInfoCard tour={item} />
+              </Spacer>
+            );
+          }}
+          keyExtractor={(item) => item.name}
+          initialNumToRender={10}
+          maxToRenderPerBatch={18}
+          // horizontal
+        />
+      )}
       {/* <TourInfoCard /> */}
     </SafeArea>
   );

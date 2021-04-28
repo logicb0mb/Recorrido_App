@@ -6,22 +6,31 @@ import axios from 'axios';
 //   );
 //   return await res.json();
 // };
-export const toursRequest = async () => {
+export const toursRequest = async (location) => {
   try {
-    // 1) Get tours data from API
-    const response = await axios.get(
-      'https://recorrido-shreyas.herokuapp.com/api/v1/tours?sort=-ratingsAverage'
-    );
+    if (location === 'alltours') {
+      // 1) Get tours data from API
+      let response = await axios.get(
+        'https://recorrido-shreyas.herokuapp.com/api/v1/tours?sort=-ratingsAverage'
+      );
 
-    // console.log(response);
-    const allTours = response.data.data.data; //array of all tour objects
+      // console.log(response);
+      const allTours = response.data.data.data; //array of all tour objects
 
-    // console.log(allTours);
-    // console.log(
-    //   '******************************* ALL Tours *****************************'
-    // );
-    // console.log(allTours[0]);
-    return allTours;
+      // console.log(allTours);
+      // console.log(
+      //   '******************************* ALL Tours *****************************'
+      // );
+      // console.log(allTours[0]);
+      return allTours;
+    } else {
+      const response = await axios.get(
+        `https://recorrido-shreyas.herokuapp.com/api/v1/tours/tours-within/400/center/${location}/unit/mi`
+      );
+      const toursWithin = response.data.data.data;
+      console.log(toursWithin);
+      return toursWithin;
+    }
   } catch (error) {
     console.log(error);
   }
