@@ -22,6 +22,7 @@ import { ToursScreen } from './src/features/tours/screens/tours.screen';
 import { SafeArea } from './src/components/utility/safe-area.component';
 
 import { ToursContextProvider } from './src/services/tours/toursRequest.context';
+import { LocationContextProvider } from './src/services/location/location.context';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,21 +62,23 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <ToursContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={createScreenOptions}
-              tabBarOptions={{
-                activeTintColor: '#45d9fd',
-                inactiveTintColor: '#040E28',
-              }}
-            >
-              <Tab.Screen name="Tours" component={ToursScreen} />
-              <Tab.Screen name="Map" component={Map} />
-              <Tab.Screen name="Settings" component={Settings} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </ToursContextProvider>
+        <LocationContextProvider>
+          <ToursContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator
+                screenOptions={createScreenOptions}
+                tabBarOptions={{
+                  activeTintColor: '#45d9fd',
+                  inactiveTintColor: '#040E28',
+                }}
+              >
+                <Tab.Screen name="Tours" component={ToursScreen} />
+                <Tab.Screen name="Map" component={Map} />
+                <Tab.Screen name="Settings" component={Settings} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </ToursContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
