@@ -1,5 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { SafeAreaView, FlatList, StatusBar, View, Text } from 'react-native';
+import {
+  SafeAreaView,
+  FlatList,
+  TouchableOpacity,
+  View,
+  Text,
+} from 'react-native';
 import styled from 'styled-components/native';
 
 import TourInfoCard from '../components/tourCard/tour-infocard.component';
@@ -19,7 +25,7 @@ const TourList = styled(FlatList).attrs({
   height: 100%;
 `;
 
-export const ToursScreen = () => {
+export const ToursScreen = ({ navigation }) => {
   const { tours, error, isLoading } = useContext(ToursContext);
   let displayError = false;
   //   console.log(tours);
@@ -43,9 +49,13 @@ export const ToursScreen = () => {
           renderItem={({ item }) => {
             //   console.log(item);
             return (
-              <Spacer position="bottom" size="large">
-                <TourInfoCard tour={item} />
-              </Spacer>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('TourDetail')}
+              >
+                <Spacer position="bottom" size="large">
+                  <TourInfoCard tour={item} navigation={navigation} />
+                </Spacer>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={(item) => item.name}

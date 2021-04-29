@@ -16,13 +16,13 @@ const TourCard = styled(View)`
   height: 520px;
 `;
 
-const TourInfoCard = ({ tour = {} }) => {
+const TourInfoCard = ({ tour = {}, navigation }) => {
   return (
     <>
       <TourCard elevation={3} borderRadius={4}>
         <TourInfoCardHeader tour={tour} />
         <TourInfoCardDetails tour={tour} />
-        <TourInfoCardFooter tour={tour} />
+        <TourInfoCardFooter navigation={navigation} tour={tour} />
       </TourCard>
     </>
   );

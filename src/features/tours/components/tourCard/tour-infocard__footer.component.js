@@ -9,7 +9,7 @@ import {
   DetailsButton,
 } from './tour-infocard__footer.styles';
 
-export const TourInfoCardFooter = ({ tour }) => {
+export const TourInfoCardFooter = ({ tour, navigation }) => {
   return (
     <CardFooter>
       <CardFooterTextContainer>
@@ -48,7 +48,11 @@ export const TourInfoCardFooter = ({ tour }) => {
                 backgroundColor: 'yellow',
               }}
             > */}
-      <DetailsButton title="Details" color="#45D8FC" />
+      <DetailsButton
+        onPress={() => navigation.navigate('TourDetail')}
+        title="Details"
+        color="#45D8FC"
+      />
       {/* </View> */}
       {/* </View> */}
     </CardFooter>
