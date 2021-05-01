@@ -8,11 +8,13 @@ import { Feather } from '@expo/vector-icons';
 export const OverviewBox = styled(View)`
   background-color: #f7f7f7;
   ${'' /* flex: 1; */}
-  height:450px;
+  height:390px;
   justify-content: center;
 `;
 
-export const ViewUnstyled = styled(View)``;
+export const ViewUnstyled = styled(View)`
+  justify-content: space-between;
+`;
 
 export const OverviewBoxGroup = styled(View)`
   padding-left: 13%;
@@ -56,8 +58,8 @@ export const OverviewBoxText = styled(Text)`
 
 export const OverviewBoxImage = styled(Image)`
   border-radius: 50;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   margin-right: 12.5px;
   margin-top: 10px;
 `;

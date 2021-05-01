@@ -23,7 +23,7 @@ export const Heading = ({ content }) => {
         >
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 23,
               color: 'black',
               textTransform: 'uppercase',
               fontWeight: '500',

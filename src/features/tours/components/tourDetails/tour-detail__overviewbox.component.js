@@ -24,7 +24,7 @@ export const TourDetailsOverviewBox = ({ tour = {} }) => {
           <OverviewBoxDetail>
             <FlexView>
               <FlexViewFirstChild>
-                <OverviewBoxIcon name="calendar" color="#45d9fd" size={28} />
+                <OverviewBoxIcon name="calendar" color="#45d9fd" size={25} />
                 <OverviewBoxLabel>Next Date</OverviewBoxLabel>
               </FlexViewFirstChild>
               <FlexViewSecondChild>
@@ -37,7 +37,7 @@ export const TourDetailsOverviewBox = ({ tour = {} }) => {
           <OverviewBoxDetail>
             <FlexView>
               <FlexViewFirstChild>
-                <OverviewBoxIcon name="trending-up" color="#45d9fd" size={28} />
+                <OverviewBoxIcon name="trending-up" color="#45d9fd" size={25} />
                 <OverviewBoxLabel>Difficulty</OverviewBoxLabel>
               </FlexViewFirstChild>
               <FlexViewSecondChild>
@@ -48,7 +48,7 @@ export const TourDetailsOverviewBox = ({ tour = {} }) => {
           <OverviewBoxDetail>
             <FlexView>
               <FlexViewFirstChild>
-                <OverviewBoxIcon name="user" color="#45d9fd" size={28} />
+                <OverviewBoxIcon name="user" color="#45d9fd" size={25} />
                 <OverviewBoxLabel>Tourists</OverviewBoxLabel>
               </FlexViewFirstChild>
               <FlexViewSecondChild>
@@ -56,10 +56,10 @@ export const TourDetailsOverviewBox = ({ tour = {} }) => {
               </FlexViewSecondChild>
             </FlexView>
           </OverviewBoxDetail>
-          <OverviewBoxDetail style={{ marginBottom: -25 }}>
+          <OverviewBoxDetail style={{ marginBottom: -20 }}>
             <FlexView>
               <FlexViewFirstChild>
-                <OverviewBoxIcon name="star" color="#45d9fd" size={28} />
+                <OverviewBoxIcon name="star" color="#45d9fd" size={25} />
                 <OverviewBoxLabel>Rating</OverviewBoxLabel>
               </FlexViewFirstChild>
               <FlexViewSecondChild>

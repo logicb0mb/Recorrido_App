@@ -14,7 +14,7 @@ export const ToursNavigator = () => {
   return (
     <ToursStack.Navigator
       headerMode="none"
-      screenOptions={{ ...TransitionPresets.ModalTransition }}
+      screenOptions={{ ...TransitionPresets.ModalSlideFromBottomIOS }}
     >
       <ToursStack.Screen name="Tours" component={ToursScreen} />
       <ToursStack.Screen name="TourDetail" component={TourDetailsScreen} />
