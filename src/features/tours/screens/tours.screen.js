@@ -50,7 +50,9 @@ export const ToursScreen = ({ navigation }) => {
             //   console.log(item);
             return (
               <TouchableOpacity
-                onPress={() => navigation.navigate('TourDetail')}
+                onPress={() =>
+                  navigation.navigate('TourDetail', { tour: item })
+                }
               >
                 <Spacer position="bottom" size="large">
                   <TourInfoCard tour={item} navigation={navigation} />

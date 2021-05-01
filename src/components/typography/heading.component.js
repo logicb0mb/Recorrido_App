@@ -1,0 +1,47 @@
+import React from 'react';
+import { Text, View } from 'react-native';
+import MaskedView from '@react-native-community/masked-view';
+import { LinearGradient } from 'expo-linear-gradient';
+
+export const Heading = ({ content }) => {
+  return (
+    <MaskedView
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '20%',
+      }}
+      maskElement={
+        <View
+          style={{
+            // Transparent background because mask is based off alpha channel.
+            backgroundColor: 'transparent',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 25,
+              color: 'black',
+              textTransform: 'uppercase',
+              fontWeight: '500',
+              letterSpacing: 1,
+            }}
+          >
+            {content}
+          </Text>
+        </View>
+      }
+    >
+      {/* Shows behind the mask, you can put anything here, such as an image */}
+      <LinearGradient
+        style={{ flex: 1, height: '100%' }}
+        colors={['#45d9fd', '#4eefd1ff']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      />
+    </MaskedView>
+  );
+};

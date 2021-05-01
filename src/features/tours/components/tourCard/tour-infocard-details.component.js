@@ -1,5 +1,5 @@
 import React from 'react';
-
+import moment from 'moment';
 import mapPin from './../../../../../assets/img/svgs/map-pin';
 import calendar from './../../../../../assets/img/svgs/calendar.js';
 import flag from './../../../../../assets/img/svgs/flag.js';
@@ -39,11 +39,7 @@ export const TourInfoCardDetails = ({ tour }) => {
         <GlimpseDataGridCell>
           <GridCellIcon xml={calendar} />
           <GridCellText variant="font14px">
-            {/* {startDates[0].toLocaleString('en-in', {
-              month: 'long',
-              year: 'numeric',
-            })} */}
-            June 2021
+            {moment(tour.startDates[0]).format('MMMM, YYYY')}
           </GridCellText>
         </GlimpseDataGridCell>
       </GlimpseDataGrid>

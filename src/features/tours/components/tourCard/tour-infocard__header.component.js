@@ -47,7 +47,7 @@ export const TourInfoCardHeader = ({ tour }) => {
 
           <ClipPath id="clip">
             <G scale="1">
-              <Polygon points="0,0 400,0 400,185 0,220" />
+              <Polygon points="0,0 415,0 415,185 0,220" />
             </G>
           </ClipPath>
         </Defs>

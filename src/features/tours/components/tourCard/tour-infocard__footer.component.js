@@ -49,7 +49,7 @@ export const TourInfoCardFooter = ({ tour, navigation }) => {
               }}
             > */}
       <DetailsButton
-        onPress={() => navigation.navigate('TourDetail')}
+        onPress={() => navigation.navigate('TourDetail', { tour: tour })}
         title="Details"
         color="#45D8FC"
       />

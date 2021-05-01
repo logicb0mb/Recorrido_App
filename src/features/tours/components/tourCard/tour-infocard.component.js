@@ -16,7 +16,7 @@ const TourCard = styled(View)`
   height: 520px;
 `;
 
-const TourInfoCard = ({ tour = {}, navigation }) => {
+export const TourInfoCard = ({ tour = {}, navigation }) => {
   return (
     <>
       <TourCard elevation={3} borderRadius={4}>

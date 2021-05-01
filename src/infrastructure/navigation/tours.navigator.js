@@ -1,25 +1,23 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import {
-  createStackNavigator,
   TransitionPresets,
+  createStackNavigator,
 } from '@react-navigation/stack';
 
+import { SafeArea } from '../../components/utility/safe-area.component';
 import { ToursScreen } from '../../features/tours/screens/tours.screen';
-
+import { TourDetailsScreen } from '../../features/tours/screens/tour-details.screen';
 const ToursStack = createStackNavigator();
 
 export const ToursNavigator = () => {
   return (
     <ToursStack.Navigator
       headerMode="none"
-      screenOptions={{ ...TransitionPresets.ModalPresentationIOS }}
+      screenOptions={{ ...TransitionPresets.ModalTransition }}
     >
       <ToursStack.Screen name="Tours" component={ToursScreen} />
-      <ToursStack.Screen
-        name="TourDetail"
-        component={() => <Text>Tour Detail</Text>}
-      />
+      <ToursStack.Screen name="TourDetail" component={TourDetailsScreen} />
     </ToursStack.Navigator>
   );
 };
