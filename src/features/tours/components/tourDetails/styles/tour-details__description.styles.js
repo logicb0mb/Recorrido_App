@@ -1,12 +1,26 @@
 import styled from 'styled-components/native';
 import { View } from 'react-native';
-
+import Svg, { Image as SVGImage } from 'react-native-svg';
 import { Text } from '../../../../../components/typography/text.component';
 
-export const DescriptionBox = styled(View)`
+export const DescriptionContainer = styled(View)`
+  position: relative;
+  ${'' /* height: 225px; */}
+  ${'' /* width: 100%; */}
+  height: 370px;
   background-color: #f7f7f7;
-  ${'' /* flex: 1; */}
-  height:300px;
+`;
+
+export const TourCardCover = styled(SVGImage)`
+  padding: ${(props) => props.theme.space[3]};
+  background-color: #f7f7f7;
+  position: relative;
+`;
+
+export const DescriptionBox = styled(View)`
+  background-color: #fcfcfc;
+  height: 300px;
+  margin-top: -335;
   padding-top: 10px;
   justify-content: center;
 `;
