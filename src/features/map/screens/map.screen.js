@@ -11,19 +11,24 @@ const Map = styled(MapView)`
   width: 100%;
 `;
 
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { tours = [] } = useContext(ToursContext);
 
   const [latDelta, setLatDelta] = useState(0);
 
-  const { lat, lng, viewport } = location;
+  let { lat, lng, viewport } = location;
 
+  if (!lat) {
+    lat = 37.7749295;
+    lng = -122.4194155;
+  }
   useEffect(() => {
     if (!viewport) {
       const northeastLat = 37.812;
       const southwestLat = 37.70339999999999;
       setLatDelta(northeastLat - southwestLat);
+
       return;
     }
     const northeastLat = viewport.northeast.lat;
@@ -52,9 +57,12 @@ export const MapScreen = () => {
                 latitude: tour.startLocation.coordinates[1],
                 longitude: tour.startLocation.coordinates[0],
               }}
+              pinColor="#C5295A"
+              image={require('../../../../assets/img/pin.png')}
             >
-              <FontAwesome name="map-marker" size={30} color="#C5295A" />
-              <MapView.Callout>
+              <MapView.Callout
+                onPress={() => navigation.navigate('TourDetail', { tour })}
+              >
                 <MapCallout tour={tour} />
               </MapView.Callout>
             </MapView.Marker>

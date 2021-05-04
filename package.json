@@ -38,6 +38,7 @@
     "react-native-svg": "12.1.0",
     "react-native-text-gradient": "^0.1.7",
     "react-native-web": "^0.15.6",
+    "react-native-webview": "11.0.0",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
