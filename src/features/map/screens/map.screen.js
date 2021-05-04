@@ -61,6 +61,7 @@ export const MapScreen = ({ navigation }) => {
               image={require('../../../../assets/img/pin.png')}
             >
               <MapView.Callout
+                tooltip
                 onPress={() => navigation.navigate('TourDetail', { tour })}
               >
                 <MapCallout tour={tour} />

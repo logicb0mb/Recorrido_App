@@ -9,6 +9,7 @@ export const DescriptionContainer = styled(View)`
   ${'' /* width: 100%; */}
   height: 370px;
   background-color: #f7f7f7;
+  z-index: 1;
 `;
 
 export const TourCardCover = styled(SVGImage)`

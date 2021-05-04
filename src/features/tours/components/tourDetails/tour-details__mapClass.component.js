@@ -1,0 +1,85 @@
+import React from 'react';
+import MapView from 'react-native-maps';
+import { View, Text } from 'react-native';
+import { Heading } from '../../../../components/typography/heading.component';
+
+import {
+  Map,
+  MapContainer,
+  MapBox,
+} from '../tourDetails/styles/tour-details__mapClass.styles';
+
+export class TourDetailsMap extends React.Component {
+  constructor() {
+    super();
+    this.mapRef = null;
+    this.markerRef = [];
+    this.state = {
+      calloutIsRendered: false,
+    };
+  }
+
+  renderCallout() {
+    if (this.state.calloutIsRendered === true) return;
+
+    this.markerRef.map((i) => {
+      i.showCallout();
+    });
+    this.setState({ calloutIsRendered: true });
+  }
+
+  render() {
+    const { tour } = this.props;
+    const coords = tour.locations.map((element) => {
+      return {
+        latitude: element.coordinates[1],
+        longitude: element.coordinates[0],
+      };
+    });
+    // console.log(coords);
+
+    return (
+      <>
+        <MapContainer>
+          <Heading content="Locations" height="15%" />
+          <Map
+            ref={(ref) => {
+              this.mapRef = ref;
+            }}
+            onLayout={() =>
+              this.mapRef.fitToCoordinates(coords, {
+                edgePadding: { top: 200, right: 200, bottom: 200, left: 200 },
+                animated: true,
+              })
+            }
+            onRegionChangeComplete={() => this.renderCallout()}
+          >
+            {tour.locations.map((location, i) => {
+              return (
+                <MapView.Marker
+                  key={location.description}
+                  title={location.description}
+                  coordinate={{
+                    latitude: location.coordinates[1],
+                    longitude: location.coordinates[0],
+                  }}
+                  pinColor="#C5295A"
+                  image={require('../../../../../assets/img/pin.png')}
+                  ref={(ref) => {
+                    this.markerRef[i] = ref;
+                  }}
+                >
+                  <MapView.Callout>
+                    <View>
+                      <Text>{`Day ${location.day} ${location.description}`}</Text>
+                    </View>
+                  </MapView.Callout>
+                </MapView.Marker>
+              );
+            })}
+          </Map>
+        </MapContainer>
+      </>
+    );
+  }
+}

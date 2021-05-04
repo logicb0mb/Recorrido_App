@@ -65,7 +65,7 @@ export const TourDetailsDescriptionBox = ({ tour = {} }) => {
           />
         </Svg>
         <DescriptionBox>
-          <Heading content={`About`} />
+          <Heading content={`About`} height="20%" />
           {tour.description.split('\n').map((paragraph) => (
             <View>
               <DescriptionBoxText>{paragraph}</DescriptionBoxText>

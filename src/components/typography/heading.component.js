@@ -3,14 +3,14 @@ import { Text, View } from 'react-native';
 import MaskedView from '@react-native-community/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export const Heading = ({ content }) => {
+export const Heading = ({ content, height }) => {
   return (
     <MaskedView
       style={{
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '20%',
+        height: `${height ? height : '20%'}`,
       }}
       maskElement={
         <View
