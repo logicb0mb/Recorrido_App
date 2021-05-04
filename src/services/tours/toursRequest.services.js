@@ -25,7 +25,7 @@ export const toursRequest = async (location) => {
       return allTours;
     } else {
       const response = await axios.get(
-        `https://recorrido-shreyas.herokuapp.com/api/v1/tours/tours-within/400/center/${location}/unit/mi`
+        `https://recorrido-shreyas.herokuapp.com/api/v1/tours/tours-within/500/center/${location}/unit/mi`
       );
       const toursWithin = response.data.data.data;
       //   console.log(toursWithin);

@@ -1,11 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { StatusBar, FlatList, SafeAreaView, View } from 'react-native';
-import { LocationContext } from '../../../../services/location/location.context';
+import { LocationContext } from '../../../services/location/location.context';
 import styled from 'styled-components/native';
 import { Searchbar } from 'react-native-paper';
 
 const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
+  position: absolute;
+  z-index: 999;
+  top: 30px;
+  width: 100%;
 `;
 
 export const Search = () => {
@@ -19,6 +23,7 @@ export const Search = () => {
   return (
     <SearchContainer>
       <Searchbar
+        icon="map"
         placeholder="Search"
         style={{ backgroundColor: '#050f28', textDecorationColor: '#fff' }}
         placeholderTextColor="#fff"
