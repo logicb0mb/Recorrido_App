@@ -6,6 +6,10 @@ import {
   CTAContainer,
   CTACard,
   CTAImageGrid,
+  CTALinearGradient,
+  CTALogo,
+  CTAImage1,
+  CTAImage2,
   CTAContent,
   CTAHeading,
   CTAText,
@@ -18,7 +22,24 @@ export const TourDetailsCTA = ({ tour = {} }) => {
     <CTAContainer>
       <CTACard>
         <CTAImageGrid>
-          <Text>ImageGrid</Text>
+          <CTALinearGradient colors={['#45d9fd', '#4eefd1ff']} elevation={40}>
+            <CTALogo
+              source={require('../../../../../assets/img/logo_50.png')}
+              resizemode="cover"
+            />
+          </CTALinearGradient>
+          <CTAImage1
+            source={{
+              uri: `https://recorrido-shreyas.herokuapp.com/img/tours/${tour.images[1]}`,
+            }}
+            elevation={40}
+          />
+          <CTAImage2
+            source={{
+              uri: `https://recorrido-shreyas.herokuapp.com/img/tours/${tour.images[2]}`,
+            }}
+            elevation={40}
+          />
         </CTAImageGrid>
         <CTAContent>
           <CTAHeading>
@@ -27,7 +48,7 @@ export const TourDetailsCTA = ({ tour = {} }) => {
           </CTAHeading>
           <CTAText>{`${tour.duration} days. 1 adventure. Infinite memories. Make it yours today!`}</CTAText>
         </CTAContent>
-        <CTAButton>
+        <CTAButton onPress={() => alert('Go to Booking')}>
           <ButtonText>Book Tour Now!</ButtonText>
         </CTAButton>
       </CTACard>
