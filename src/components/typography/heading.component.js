@@ -3,13 +3,14 @@ import { Text, View } from 'react-native';
 import MaskedView from '@react-native-community/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export const Heading = ({ content, height }) => {
+export const Heading = ({ content, height, colorsProp }) => {
+  const colors = colorsProp ? colorsProp : ['#45d9fd', '#4eefd1ff'];
   return (
     <MaskedView
       style={{
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         height: `${height ? height : '20%'}`,
       }}
       maskElement={
@@ -38,7 +39,7 @@ export const Heading = ({ content, height }) => {
       {/* Shows behind the mask, you can put anything here, such as an image */}
       <LinearGradient
         style={{ flex: 1, height: '100%' }}
-        colors={['#45d9fd', '#4eefd1ff']}
+        colors={colors}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       />

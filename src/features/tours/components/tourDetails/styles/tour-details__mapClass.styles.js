@@ -10,10 +10,11 @@ export const Map = styled(MapView)`
 
 export const MapContainer = styled(View)`
   position: relative;
-
+  ${'' /* background-color: #45d9fd; */}
+  margin-top:-95px;
   height: 400px;
-  z-index: 0.1;
-  margin-top: 25px;
+  z-index: 0.5;
+
   ${'' /* margin-bottom: 25px; */}
 `;
 

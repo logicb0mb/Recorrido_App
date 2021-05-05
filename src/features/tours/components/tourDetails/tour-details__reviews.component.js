@@ -37,24 +37,23 @@ export const TourDetailsReviews = ({ reviews = {} }) => {
         <Svg height="100%" width="100%">
           <Defs>
             <LinearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-              <Stop offset="0" stopColor="#45d9fd" stopOpacity="0.7" />
-              <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="0.8" />
+              <Stop offset="0" stopColor="#45d9fd" stopOpacity="1" />
+              <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="1" />
             </LinearGradient>
 
             <ClipPath id="clip">
               <G scale="1">
-                <Polygon points="0,0 415,0 415,335 0,370" />
+                <Polygon points="0,35 415,0 415,380 0,415" />
               </G>
             </ClipPath>
           </Defs>
-          <Rect
-            x="0"
-            y="0"
+          <Polygon
+            points="0,35 415,0 415,380 0,415"
             width="100%"
             height="100%"
             fill="url(#grad)"
             clipPath="url(#clip)"
-            opacity="0.6"
+            opacity="1"
           />
         </Svg>
         <ReviewsBox>

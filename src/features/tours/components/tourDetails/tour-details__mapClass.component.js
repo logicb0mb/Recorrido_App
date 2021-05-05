@@ -38,11 +38,11 @@ export class TourDetailsMap extends React.Component {
     return (
       <>
         <MapContainer>
-          <Heading
+          {/* <Heading
             content="Locations"
             height="15%"
-            styles={{ backgroundColor: '#f7f7f7' }}
-          />
+            colorsProp={['#C5295A', '#C5295A']}
+          /> */}
           <Map
             ref={(ref) => {
               this.mapRef = ref;

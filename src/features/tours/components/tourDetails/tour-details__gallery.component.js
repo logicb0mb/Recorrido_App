@@ -94,8 +94,8 @@ export const TourDetailsGallery = ({ tour = {} }) => {
         <Svg height="100%" width="100%" preserveAspectRatio="xMinYMin slice">
           <Defs>
             <LinearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-              <Stop offset="0" stopColor="#45d9fd" stopOpacity="0.7" />
-              <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="0.8" />
+              <Stop offset="0" stopColor="#45d9fd" stopOpacity="1" />
+              <Stop offset="1" stopColor="#4eefd1ff" stopOpacity="1" />
             </LinearGradient>
 
             <ClipPath id="clip">
@@ -122,11 +122,11 @@ export const TourDetailsGallery = ({ tour = {} }) => {
             clipPath="url(#clip)"
           />
           <Polygon
-            points="0,370 415,335 415,415"
+            // points="0,370 415,335 415,370"
             width="100%"
             height="100%"
             fill="url(#grad)"
-            opacity="0.6"
+            opacity="1"
           />
         </Svg>
       </ImageContainerThree>

@@ -24,7 +24,7 @@ export const ImageContainerThree = styled(View)`
   position: relative;
   ${'' /* height: 225px; */}
   ${'' /* width: 100%; */}
-  height: 370px;
+  height: 430px;
   z-index: 2;
   ${'' /* background-color: #000; */}
   margin-top: -70px;

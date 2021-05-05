@@ -6,13 +6,13 @@ export const ReviewsContainer = styled(View)`
   position: relative;
   ${'' /* height: 225px; */}
   ${'' /* width: 100%; */}
-  height: 370px;
-  background-color: #f7f7f7;
-  z-index: 9;
+  height: 415px;
+  z-index: 0.6;
+  margin-top: -35px;
 `;
 export const ReviewsBox = styled(View)`
   height: 325px;
-  margin-top: -360px;
+  margin-top: -378px;
   padding-top: 10px;
   justify-content: center;
 `;
@@ -31,7 +31,7 @@ export const ReviewCard = styled(View)`
   margin-left: 5px;
   margin-right: 40px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   flex-direction: column;
   align-items: center;
