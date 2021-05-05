@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 import { Heading } from '../../../../components/typography/heading.component';
 import {
   DescriptionContainer,
@@ -67,7 +69,7 @@ export const TourDetailsDescriptionBox = ({ tour = {} }) => {
         <DescriptionBox>
           <Heading content={`About`} height="20%" />
           {tour.description.split('\n').map((paragraph) => (
-            <View>
+            <View key={uuidv4()}>
               <DescriptionBoxText>{paragraph}</DescriptionBoxText>
             </View>
           ))}

@@ -10,22 +10,20 @@ import {
 } from '../tourDetails/styles/tour-details__mapClass.styles';
 
 export class TourDetailsMap extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.mapRef = null;
-    this.markerRef = [];
+    this.markerRef = {};
     this.state = {
       calloutIsRendered: false,
     };
   }
 
   renderCallout() {
-    if (this.state.calloutIsRendered === true) return;
-
-    this.markerRef.map((i) => {
-      i.showCallout();
-    });
-    this.setState({ calloutIsRendered: true });
+    if (!this.state.calloutIsRendered) {
+      this.markerRef.showCallout();
+      this.setState({ calloutIsRendered: true });
+    }
   }
 
   render() {
@@ -36,12 +34,15 @@ export class TourDetailsMap extends React.Component {
         longitude: element.coordinates[0],
       };
     });
-    // console.log(coords);
 
     return (
       <>
         <MapContainer>
-          <Heading content="Locations" height="15%" />
+          <Heading
+            content="Locations"
+            height="15%"
+            styles={{ backgroundColor: '#f7f7f7' }}
+          />
           <Map
             ref={(ref) => {
               this.mapRef = ref;
@@ -66,7 +67,7 @@ export class TourDetailsMap extends React.Component {
                   pinColor="#C5295A"
                   image={require('../../../../../assets/img/pin.png')}
                   ref={(ref) => {
-                    this.markerRef[i] = ref;
+                    this.markerRef = ref;
                   }}
                 >
                   <MapView.Callout>
