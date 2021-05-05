@@ -1,4 +1,4 @@
-import { Button, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 
 import { Text } from '../../../../components/typography/text.component';
@@ -9,7 +9,7 @@ export const CardFooter = styled(View)`
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
-  ${'' /* width: 100%; */}
+  width: 100%;
   align-items: flex-start;
   flex-wrap: nowrap;
 `;
@@ -42,14 +42,18 @@ export const FooterText = styled(Text)`
   font-family: ${(props) => props.theme.fonts.latoLight};
 `;
 
-export const DetailsButton = styled(Button)`
-  font-family: ${(props) => props.theme.fonts.latoLight};
-  border-radius: 50px;
-  align-self: center;
+export const DetailsButton = styled(TouchableOpacity)`
+  width: 40%;
+  align-items: center;
+  background-color: #45d9fd;
+  ${'' /* border-radius: 30px; */}
+  padding: 13px;
+`;
 
+export const ButtonText = styled(Text)`
   text-transform: uppercase;
-
-  font-weight: 400;
-  border: none;
-  padding: 12.5px 30px !important;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: ${(props) => props.theme.fonts.heading};
 `;

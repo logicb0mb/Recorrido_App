@@ -109,6 +109,7 @@ export const CTAButton = styled(TouchableOpacity)`
 export const ButtonText = styled(Text)`
   text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 1px;
   color: #fff;
   font-family: ${(props) => props.theme.fonts.heading};
 `;

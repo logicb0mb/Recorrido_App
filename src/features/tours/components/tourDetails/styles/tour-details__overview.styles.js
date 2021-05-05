@@ -8,7 +8,7 @@ import { Feather } from '@expo/vector-icons';
 export const OverviewBox = styled(View)`
   background-color: #f7f7f7;
   ${'' /* flex: 1; */}
-  height:390px;
+  height: 390px;
   justify-content: center;
 `;
 
@@ -21,7 +21,6 @@ export const OverviewBoxGroup = styled(View)`
   padding-right: 13%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
   ${'' /* background-color: #000; */}
 `;
 
