@@ -63,7 +63,7 @@ export const TourDetailsReviews = ({ reviews = {} }) => {
               //   console.log(Array(item.rating));
               //   console.log(item);
               return (
-                <ReviewCard>
+                <ReviewCard elevation={10}>
                   <ReviewUser>
                     <ReviewUserImage
                       source={{

@@ -21,6 +21,7 @@ export const OverviewBoxGroup = styled(View)`
   padding-right: 13%;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
   ${'' /* background-color: #000; */}
 `;
 
@@ -45,11 +46,11 @@ export const OverviewBoxLabel = styled(Text)`
   font-family: ${(props) => props.theme.fonts.heading};
   color: #777;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export const OverviewBoxText = styled(Text)`
-  font-size: 16px;
+  font-size: 14px;
   text-transform: capitalize;
   color: #777;
   font-weight: 400;

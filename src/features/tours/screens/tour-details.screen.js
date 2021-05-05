@@ -9,7 +9,7 @@ import { TourDetailsDescriptionBox } from '../components/tourDetails/tour-detail
 import { TourDetailsGallery } from '../components/tourDetails/tour-details__gallery.component';
 import { TourDetailsMap } from '../components/tourDetails/tour-details__mapClass.component';
 import { TourDetailsReviews } from '../components/tourDetails/tour-details__reviews.component';
-
+import { TourDetailsCTA } from '../components/tourDetails/tour-details__cta.component';
 export const TourDetailsScreen = ({ route }) => {
   const { tour } = route.params;
   const [reviews, setReviews] = useState([]);
@@ -32,6 +32,7 @@ export const TourDetailsScreen = ({ route }) => {
         <TourDetailsGallery tour={tour} />
         <TourDetailsMap tour={tour} />
         <TourDetailsReviews reviews={reviews} />
+        <TourDetailsCTA tour={tour} />
       </ScrollView>
     </SafeArea>
   );
