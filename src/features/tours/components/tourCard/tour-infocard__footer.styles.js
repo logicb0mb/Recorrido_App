@@ -5,6 +5,7 @@ import { Text } from '../../../../components/typography/text.component';
 export const CardFooter = styled(View)`
   padding: 25px 30px;
   background-color: #f7f7f7;
+  border-radius: 4px;
 
   flex: 1;
   flex-direction: row;

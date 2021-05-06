@@ -6,9 +6,10 @@ import { Searchbar } from 'react-native-paper';
 
 const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
+  padding-bottom: 5px;
 `;
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
@@ -23,6 +24,8 @@ export const Search = () => {
         style={{ backgroundColor: '#050f28', textDecorationColor: '#fff' }}
         placeholderTextColor="#fff"
         theme={{ colors: { text: '#fff' } }}
+        icon={isFavouritesToggled ? 'heart' : 'heart-outline'}
+        onIconPress={onFavouritesToggle}
         iconColor="#C5295A"
         value={searchKeyword}
         onSubmitEditing={() => {

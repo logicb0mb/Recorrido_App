@@ -18,7 +18,7 @@ import { theme } from './src/infrastructure/theme/index';
 
 import { ToursContextProvider } from './src/services/tours/toursRequest.context';
 import { LocationContextProvider } from './src/services/location/location.context';
-
+import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
 export default function App() {
   const [oswaldFontsLoaded] = useFontsOswald({ Oswald_400Regular });
   const [latoFontsLoaded] = useFontsLato({ Lato_400Regular, Lato_300Light });
@@ -29,11 +29,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <LocationContextProvider>
-          <ToursContextProvider>
-            <Navigation />
-          </ToursContextProvider>
-        </LocationContextProvider>
+        <FavouritesContextProvider>
+          <LocationContextProvider>
+            <ToursContextProvider>
+              <Navigation />
+            </ToursContextProvider>
+          </LocationContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

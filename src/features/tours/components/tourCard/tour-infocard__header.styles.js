@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 
 import Svg, { Image as SVGImage } from 'react-native-svg';
@@ -10,19 +10,15 @@ export const CardHeader = styled(View)`
   position: relative;
   ${'' /* height: 225px; */}
   ${'' /* width: 100%; */}
+  border-radius:4px;
   height: 225px;
 `;
 
 export const TourCardCover = styled(SVGImage)`
   padding: ${(props) => props.theme.space[3]};
   background-color: ${(props) => props.theme.colors.bg.primary};
-  ${'' /* width: 100%;
-  height: 200px; */}
   position: relative;
-
-  ${'' /* Added Styles */}
-  ${'' /* height: 100%;
-  width: 100%; */}
+  overflow: hidden;
 `;
 
 export const HeadingTertiary = styled(Text)`

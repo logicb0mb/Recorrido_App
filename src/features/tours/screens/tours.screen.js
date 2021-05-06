@@ -12,14 +12,17 @@ import TourInfoCard from '../components/tourCard/tour-infocard.component';
 import { Search } from '../components/search/search.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utility/safe-area.component';
+import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
 
 import { ToursContext } from '../../../services/tours/toursRequest.context';
+import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import LottieLoading from '../../../components/utility/lottie-loading.component';
 import LottieError from '../../../components/utility/lottie-error.component';
 
 const TourList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
+    paddingTop: 26,
   },
 })`
   height: 100%;
@@ -27,6 +30,9 @@ const TourList = styled(FlatList).attrs({
 
 export const ToursScreen = ({ navigation }) => {
   const { tours, error, isLoading } = useContext(ToursContext);
+  const [isToggled, setIsToggled] = useState(false);
+  const { favourites } = useContext(FavouritesContext);
+
   let displayError = false;
   //   console.log(tours);
   //   console.log(error);
@@ -38,7 +44,16 @@ export const ToursScreen = ({ navigation }) => {
   return (
     <SafeArea>
       {isLoading && <LottieLoading />}
-      <Search />
+      <Search
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       {displayError && !isLoading ? (
         <View style={{ width: '100%', height: '100%' }}>
           <LottieError errorMessage="No Tour Found for this location" />
@@ -49,15 +64,9 @@ export const ToursScreen = ({ navigation }) => {
           renderItem={({ item }) => {
             //   console.log(item);
             return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('TourDetail', { tour: item })
-                }
-              >
-                <Spacer position="bottom" size="large">
-                  <TourInfoCard tour={item} navigation={navigation} />
-                </Spacer>
-              </TouchableOpacity>
+              <Spacer position="bottom" size="large">
+                <TourInfoCard tour={item} navigation={navigation} />
+              </Spacer>
             );
           }}
           keyExtractor={(item) => item.name}
