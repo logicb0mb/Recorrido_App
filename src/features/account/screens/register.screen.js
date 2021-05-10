@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { ActivityIndicator, Colors } from 'react-native-paper';
+import { ActivityIndicator } from 'react-native-paper';
 import {
   AccountBackground,
   AccountCover,
@@ -7,7 +7,6 @@ import {
   AuthButton,
   AuthInput,
   ErrorContainer,
-  Title,
 } from '../components/account.styles';
 import { Text } from '../../../components/typography/text.component';
 import { Heading } from '../../../components/typography/heading.component';

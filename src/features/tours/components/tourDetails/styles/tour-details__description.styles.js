@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { View } from 'react-native';
-import Svg, { Image as SVGImage } from 'react-native-svg';
+import { Image as SVGImage } from 'react-native-svg';
 import { Text } from '../../../../../components/typography/text.component';
 
 export const DescriptionContainer = styled(View)`

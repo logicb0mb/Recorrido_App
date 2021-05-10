@@ -1,12 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {
-  SafeAreaView,
-  FlatList,
-  TouchableOpacity,
-  View,
-  Text,
-} from 'react-native';
-import styled from 'styled-components/native';
+import { View } from 'react-native';
 
 import TourInfoCard from '../components/tourCard/tour-infocard.component';
 import { Search } from '../components/search/search.component';

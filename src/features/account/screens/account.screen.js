@@ -3,8 +3,7 @@ import { Spacer } from '../../../components/spacer/spacer.component';
 import { FadeInView } from '../../../components/animations/fade.animation';
 import SlideLeft from '../../../components/animations/slideLeft.animation';
 import SlideRight from '../../../components/animations/slideRight.animation';
-import LottieTravel from '../../../components/utility/lottie-travel.component';
-import { Heading } from '../../../components/typography/heading.component';
+
 import {
   AccountBackground,
   AccountContainer,

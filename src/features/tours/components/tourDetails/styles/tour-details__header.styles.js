@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { View } from 'react-native';
 import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
-import Svg, { Image as SVGImage } from 'react-native-svg';
+import { Image as SVGImage } from 'react-native-svg';
 
 import { Text } from '../../../../../components/typography/text.component';
 

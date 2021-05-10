@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { LocationContext } from '../../../services/location/location.context';
 import { ToursContext } from '../../../services/tours/toursRequest.context';
 import { Search } from '../components/search.component';
-import { FontAwesome } from '@expo/vector-icons';
+
 import { MapCallout } from '../components/map-callout.component';
 const Map = styled(MapView)`
   height: 100%;

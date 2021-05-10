@@ -21,7 +21,7 @@ export const TourDetailsScreen = ({ route }) => {
       setReviews(response);
     };
     getReviews();
-  }, []);
+  }, [tour]);
 
   return (
     <SafeArea>

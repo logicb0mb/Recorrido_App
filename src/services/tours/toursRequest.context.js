@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  createContext,
-  useEffect,
-  useMemo,
-  useContext,
-} from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
 
 import { toursRequest, tourTransform } from './toursRequest.services';
 
@@ -63,7 +57,7 @@ export const ToursContextProvider = ({ children }) => {
       if (location === 'alltours') {
         locationString = 'alltours';
       }
-      console.log(`location changed!`);
+      console.log('location changed!');
       //   console.log(locationString);
       retrieveTours(locationString);
     }

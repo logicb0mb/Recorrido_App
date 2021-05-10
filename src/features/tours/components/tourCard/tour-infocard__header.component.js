@@ -4,7 +4,6 @@ import Svg, {
   G,
   Polygon,
   Rect,
-  Image as SVGImage,
   Defs,
   LinearGradient,
   Stop,

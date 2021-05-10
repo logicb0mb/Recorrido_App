@@ -1,8 +1,7 @@
 import React from 'react';
-import moment from 'moment';
+
 import 'react-native-get-random-values';
-import { v4 as uuidv4 } from 'uuid';
-import { Heading } from '../../../../components/typography/heading.component';
+
 import {
   ReviewsContainer,
   ReviewsBox,
@@ -15,13 +14,10 @@ import {
   ReviewRating,
   Star,
 } from './styles/tour-details__reviews.styles';
-import { View, Text } from 'react-native';
 
 import Svg, {
   G,
   Polygon,
-  Rect,
-  Image as SVGImage,
   Defs,
   LinearGradient,
   Stop,
@@ -29,8 +25,6 @@ import Svg, {
 } from 'react-native-svg';
 
 export const TourDetailsReviews = ({ reviews = {} }) => {
-  const star = [];
-
   return (
     <>
       <ReviewsContainer>

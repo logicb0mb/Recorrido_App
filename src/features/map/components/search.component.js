@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { StatusBar, FlatList, SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 import { LocationContext } from '../../../services/location/location.context';
 import styled from 'styled-components/native';
 import { Searchbar } from 'react-native-paper';

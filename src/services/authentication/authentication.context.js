@@ -74,8 +74,8 @@ export const AuthenticationContextProvider = ({ children }) => {
       setUser(null);
       setError(null);
       setIsAuthenticated(false);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 

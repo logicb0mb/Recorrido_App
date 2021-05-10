@@ -1,12 +1,10 @@
 import React from 'react';
 import MapView from 'react-native-maps';
 import { View, Text } from 'react-native';
-import { Heading } from '../../../../components/typography/heading.component';
 
 import {
   Map,
   MapContainer,
-  MapBox,
 } from '../tourDetails/styles/tour-details__mapClass.styles';
 
 export class TourDetailsMap extends React.Component {

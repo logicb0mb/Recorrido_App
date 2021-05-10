@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 import { Heading } from '../../../../components/typography/heading.component';
@@ -15,7 +15,6 @@ import Svg, {
   G,
   Polygon,
   Rect,
-  Image as SVGImage,
   Defs,
   LinearGradient,
   Stop,
@@ -67,7 +66,7 @@ export const TourDetailsDescriptionBox = ({ tour = {} }) => {
           />
         </Svg>
         <DescriptionBox>
-          <Heading content={`About`} height="20%" />
+          <Heading content={'About'} height="20%" />
           {tour.description.split('\n').map((paragraph) => (
             <View key={uuidv4()}>
               <DescriptionBoxText>{paragraph}</DescriptionBoxText>
