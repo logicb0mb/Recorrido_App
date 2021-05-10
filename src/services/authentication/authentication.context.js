@@ -71,9 +71,9 @@ export const AuthenticationContextProvider = ({ children }) => {
   const onLogout = async () => {
     try {
       await logoutRequest();
+      setIsAuthenticated(false);
       setUser(null);
       setError(null);
-      setIsAuthenticated(false);
     } catch (err) {
       console.log(err);
     }

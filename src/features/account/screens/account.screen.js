@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import LottieTravel from '../../../components/utility/lottie-travel.component';
 import { FadeInView } from '../../../components/animations/fade.animation';
 import SlideLeft from '../../../components/animations/slideLeft.animation';
 import SlideRight from '../../../components/animations/slideRight.animation';

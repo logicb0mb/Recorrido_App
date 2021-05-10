@@ -51,7 +51,7 @@ export const ToursScreen = ({ navigation }) => {
             //   console.log(item);
             return (
               <Spacer position="bottom" size="large">
-                <FadeInView>
+                <FadeInView duration={1200}>
                   <TourInfoCard tour={item} navigation={navigation} />
                 </FadeInView>
               </Spacer>

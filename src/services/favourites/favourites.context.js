@@ -12,6 +12,7 @@ export const FavouritesContextProvider = ({ children }) => {
   const saveFavourites = async (value, id) => {
     try {
       const jsonValue = JSON.stringify(value);
+      console.log(`@favourites-${id}-`);
       await AsyncStorage.setItem(`@favourites-${id}-`, jsonValue);
     } catch (e) {
       console.log('error storing', e);
@@ -39,14 +40,14 @@ export const FavouritesContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (user && user.id) {
-      loadFavourites(user.id);
+    if (user && user._id) {
+      loadFavourites(user._id);
     }
   }, [user]);
 
   useEffect(() => {
-    if (user && user.id && favourites.length) {
-      saveFavourites(favourites, user.id);
+    if (user && user._id && favourites.length) {
+      saveFavourites(favourites, user._id);
     }
   }, [favourites, user]);
   return (
