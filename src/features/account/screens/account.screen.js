@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import LottieTravel from '../../../components/utility/lottie-travel.component';
 import { Heading } from '../../../components/typography/heading.component';
 import {
   AccountBackground,
@@ -15,6 +16,7 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <LottieTravel />
       <TitleView>
         <Title>Recorrido</Title>
         <Caption>Dream.Explore.Discover</Caption>

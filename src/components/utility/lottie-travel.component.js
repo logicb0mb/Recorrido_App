@@ -1,25 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 
 const AnimationContainer = styled(View)`
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 30%;
   position: absolute;
-  top: 25%;
-  left: 25%;
-  height: 50%;
-  width: 50%;
+  bottom: 20px;
+  padding: ${(props) => props.theme.space[1]};
 `;
 
 const StyledLottieView = styled(LottieView)`
   width: 100%;
   height: 100%;
-  background-color: #fff;
 `;
 
-export default class LottieLoading extends React.Component {
+export default class LottieTravel extends React.Component {
   componentDidMount() {
     this.animation.play();
     // Or set a specific startFrame and endFrame with:
@@ -38,10 +35,10 @@ export default class LottieLoading extends React.Component {
           ref={(animation) => {
             this.animation = animation;
           }}
-          source={require('../../../assets/animation/loading.json')}
-          speed={2}
-          // OR find more Lottie files @ https://lottiefiles.com/featured
-          // Just click the one you like, place that file in the 'assets' folder to the left, and replace the above 'require' statement
+          autoPlay
+          loop
+          resizeMode="cover"
+          source={require('../../../assets/animation/travel.json')}
         />
       </AnimationContainer>
     );
