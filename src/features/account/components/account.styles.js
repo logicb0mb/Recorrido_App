@@ -14,21 +14,22 @@ export const AccountCover = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(69, 217, 253, 0.6);
+  background-color: rgba(78, 239, 209, 0.2);
 `;
 
 export const AccountContainer = styled.View.attrs({
   elevation: 5,
 })`
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: ${(props) => props.theme.space[4]};
   justify-content: space-between;
 `;
 
 export const AuthButton = styled(Button).attrs({
-  color: 'rgb(78, 239, 209)',
+  //   color: 'rgb(78, 239, 209)',
+  color: '#45d9fd',
 })`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export const AuthInput = styled(TextInput).attrs({
@@ -52,28 +53,31 @@ export const AuthInput = styled(TextInput).attrs({
 export const AuthLabel = styled(Text)`
   margin-top: 7.5px;
   margin-bottom: 7.5px;
-  color: #777;
+  color: #000;
   font-weight: bold;
 `;
 
 export const TitleView = styled(View)`
   padding: 10px;
-  margin-bottom: 70px;
+  position: absolute;
+  top: 100;
+  ${'' /* margin-bottom: 100px; */}
 `;
 
 export const Title = styled(Text)`
   font-family: ${(props) => props.theme.fonts.heading};
   font-size: 30px;
   letter-spacing: 11px;
-  color: #fff;
+  color: #c5295a;
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 5px;
 `;
 export const Caption = styled(Text)`
   font-family: ${(props) => props.theme.fonts.body};
   letter-spacing: 5px;
   font-size: 14px;
-  color: #fff;
+  color: #050f28;
   text-align: center;
   text-transform: uppercase;
 `;

@@ -38,3 +38,14 @@ export const registerRequest = async (
     return error.response.data;
   }
 };
+
+export const logoutRequest = async () => {
+  try {
+    let logout = await axios.get(
+      `https://recorrido-shreyas.herokuapp.com/api/v1/users/logout`
+    );
+    return logout;
+  } catch (error) {
+    console.log(error);
+  }
+};

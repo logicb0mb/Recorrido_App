@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { ActivityIndicator, Colors } from 'react-native-paper';
 import {
   AccountBackground,
   AccountCover,
@@ -9,6 +10,7 @@ import {
   Title,
 } from '../components/account.styles';
 import { Text } from '../../../components/typography/text.component';
+import { Heading } from '../../../components/typography/heading.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { AuthenticationContext } from '../../../services/authentication/authentication.context';
 
@@ -17,11 +19,16 @@ export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatedPassword, setRepeatedPassword] = useState('');
-  const { onRegister, error } = useContext(AuthenticationContext);
+  const { onRegister, isLoading, error } = useContext(AuthenticationContext);
   return (
     <AccountBackground>
       <AccountCover />
       <AccountContainer>
+        <Heading
+          content="Register"
+          height="10%"
+          colorsProp={['#C5295A', '#c26']}
+        />
         <AuthInput label="Name" value={name} onChangeText={(u) => setName(u)} />
         <Spacer size="large">
           <AuthInput
@@ -59,13 +66,19 @@ export const RegisterScreen = ({ navigation }) => {
           </ErrorContainer>
         )}
         <Spacer size="large">
-          <AuthButton
-            icon="email"
-            mode="contained"
-            onPress={() => onRegister(name, email, password, repeatedPassword)}
-          >
-            Register
-          </AuthButton>
+          {!isLoading ? (
+            <AuthButton
+              icon="email"
+              mode="contained"
+              onPress={() =>
+                onRegister(name, email, password, repeatedPassword)
+              }
+            >
+              Register
+            </AuthButton>
+          ) : (
+            <ActivityIndicator animating={true} color={'#4eefd1'} />
+          )}
         </Spacer>
       </AccountContainer>
       <Spacer size="large">

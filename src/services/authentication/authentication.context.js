@@ -1,6 +1,10 @@
 import React, { useState, createContext } from 'react';
 
-import { loginRequest, registerRequest } from './authentication.service';
+import {
+  loginRequest,
+  registerRequest,
+  logoutRequest,
+} from './authentication.service';
 
 export const AuthenticationContext = createContext();
 
@@ -18,7 +22,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       if (u.status && u.status === 'success') {
         console.log(`Response success : ${u.status}`);
         setIsAuthenticated(true);
-        setUser(u);
+        setUser(u.data.user);
         setIsLoading(false);
       } else {
         console.log(`Response fail :  ${u.status} ${u.message}`);
@@ -35,19 +39,20 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onRegister = async (name, email, password, repeatedPassword) => {
-    // if (password !== repeatedPassword) {
-    //   setError('Error: Passwords do not match');
-    //   return;
-    // }
+    setIsLoading(true);
+    if (password !== repeatedPassword) {
+      setError('Error: Passwords do not match');
+      setIsLoading(false);
+      return;
+    }
 
     try {
-      setIsLoading(true);
       const u = await registerRequest(name, email, password, repeatedPassword);
 
       if (u.status && u.status === 'success') {
         console.log(`Response success : ${u.status}`);
         setIsAuthenticated(true);
-        setUser(u);
+        setUser(u.data.user);
         setIsLoading(false);
       } else {
         console.log(`Response fail :  ${u.status} ${u.message}`);
@@ -63,6 +68,17 @@ export const AuthenticationContextProvider = ({ children }) => {
     }
   };
 
+  const onLogout = async () => {
+    try {
+      await logoutRequest();
+      setUser(null);
+      setError(null);
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -72,6 +88,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         error,
         onLogin,
         onRegister,
+        onLogout,
       }}
     >
       {children}

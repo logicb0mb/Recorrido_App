@@ -16,10 +16,6 @@ import {
 
 import { Navigation } from './src/infrastructure/navigation/index';
 import { theme } from './src/infrastructure/theme/index';
-
-import { ToursContextProvider } from './src/services/tours/toursRequest.context';
-import { LocationContextProvider } from './src/services/location/location.context';
-import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
 import { AuthenticationContextProvider } from './src/services/authentication/authentication.context';
 import firebaseConfig from './firebaseConfiguration';
 
@@ -38,13 +34,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <ToursContextProvider>
-                <Navigation />
-              </ToursContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />

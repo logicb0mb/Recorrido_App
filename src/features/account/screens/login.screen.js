@@ -23,7 +23,11 @@ export const LoginScreen = ({ navigation }) => {
     <AccountBackground>
       <AccountCover />
       <AccountContainer>
-        <Heading content="Login to your Account" height="15%" />
+        <Heading
+          content="Login to your Account"
+          height="10%"
+          colorsProp={['#C5295A', '#c26']}
+        />
 
         <AuthInput
           label="E-mail"
