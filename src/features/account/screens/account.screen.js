@@ -1,5 +1,8 @@
 import React from 'react';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import { FadeInView } from '../../../components/animations/fade.animation';
+import SlideLeft from '../../../components/animations/slideLeft.animation';
+import SlideRight from '../../../components/animations/slideRight.animation';
 import LottieTravel from '../../../components/utility/lottie-travel.component';
 import { Heading } from '../../../components/typography/heading.component';
 import {
@@ -16,10 +19,16 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <LottieTravel />
+      {/* <LottieTravel /> */}
       <TitleView>
-        <Title>Recorrido</Title>
-        <Caption>Dream.Explore.Discover</Caption>
+        <FadeInView>
+          <SlideLeft duration={1200}>
+            <Title>Recorrido</Title>
+          </SlideLeft>
+          <SlideRight duration={1200}>
+            <Caption>Dream.Explore.Discover</Caption>
+          </SlideRight>
+        </FadeInView>
       </TitleView>
       <AccountContainer>
         <AuthButton

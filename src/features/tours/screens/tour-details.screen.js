@@ -10,6 +10,7 @@ import { TourDetailsGallery } from '../components/tourDetails/tour-details__gall
 import { TourDetailsMap } from '../components/tourDetails/tour-details__mapClass.component';
 import { TourDetailsReviews } from '../components/tourDetails/tour-details__reviews.component';
 import { TourDetailsCTA } from '../components/tourDetails/tour-details__cta.component';
+
 export const TourDetailsScreen = ({ route }) => {
   const { tour } = route.params;
   const [reviews, setReviews] = useState([]);

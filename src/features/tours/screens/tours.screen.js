@@ -12,21 +12,14 @@ import TourInfoCard from '../components/tourCard/tour-infocard.component';
 import { Search } from '../components/search/search.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utility/safe-area.component';
+import { FadeInView } from '../../../components/animations/fade.animation';
 import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
+import { TourList } from '../components/tourCard/tour-list.styles.js';
 
 import { ToursContext } from '../../../services/tours/toursRequest.context';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import LottieLoading from '../../../components/utility/lottie-loading.component';
 import LottieError from '../../../components/utility/lottie-error.component';
-
-const TourList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-    paddingTop: 26,
-  },
-})`
-  height: 100%;
-`;
 
 export const ToursScreen = ({ navigation }) => {
   const { tours, error, isLoading } = useContext(ToursContext);
@@ -65,7 +58,9 @@ export const ToursScreen = ({ navigation }) => {
             //   console.log(item);
             return (
               <Spacer position="bottom" size="large">
-                <TourInfoCard tour={item} navigation={navigation} />
+                <FadeInView>
+                  <TourInfoCard tour={item} navigation={navigation} />
+                </FadeInView>
               </Spacer>
             );
           }}
