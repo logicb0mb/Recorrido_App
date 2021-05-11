@@ -50,37 +50,36 @@ export const TourInfoCardHeader = ({ tour }) => {
             </G>
           </ClipPath>
         </Defs>
-        <View>
-          <TourCardCover
-            width="100%"
-            height="100%"
-            preserveAspectRatio="xMidYMid slice"
-            //   href={require(imageCoverUri)}
-            href={{
-              uri:
-                'https://recorrido-shreyas.herokuapp.com/img/tours/' +
-                tour.imageCover,
-            }}
-            // href={{
-            //     uri: tour.imageCoverUri,
-            //   }}
-            resizemode="cover"
-            fill="url(#grad)"
-            clipPath="url(#clip)"
-            rx={4}
-          />
-          <Rect
-            x="0"
-            y="0"
-            rx={4}
-            width="100%"
-            height="100%"
-            fill="url(#grad)"
-            clipPath="url(#clip)"
-            opacity="0.3"
-          />
-        </View>
+        <TourCardCover
+          width="100%"
+          height="100%"
+          preserveAspectRatio="xMidYMid slice"
+          //   href={require(imageCoverUri)}
+          href={{
+            uri:
+              'https://recorrido-shreyas.herokuapp.com/img/tours/' +
+              tour.imageCover,
+          }}
+          // href={{
+          //     uri: tour.imageCoverUri,
+          //   }}
+          resizemode="cover"
+          fill="url(#grad)"
+          clipPath="url(#clip)"
+          rx={4}
+        />
+        <Rect
+          x="0"
+          y="0"
+          rx={4}
+          width="100%"
+          height="100%"
+          fill="url(#grad)"
+          clipPath="url(#clip)"
+          opacity="0.3"
+        />
       </Svg>
+
       <CardHeadingContainer>
         <CardHeadingGradientContainer
           colors={['#rgba(58, 182, 219, 0.85)', '#rgba(78, 239, 209, 0.85)']}

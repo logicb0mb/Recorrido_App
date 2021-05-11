@@ -19,14 +19,26 @@ const TourCard = styled(View)`
 export const TourInfoCard = ({ tour = {}, navigation }) => {
   return (
     <>
-      <TourCard elevation={4} borderRadius={4}>
-        <View>
-          <Favourite tour={tour} />
-          <TourInfoCardHeader tour={tour} />
-        </View>
-        <TourInfoCardDetails tour={tour} />
-        <TourInfoCardFooter navigation={navigation} tour={tour} />
-      </TourCard>
+      <View // Parent
+        style={{
+          flex: 1,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.8,
+          shadowRadius: 2,
+          elevation: 10,
+          borderRadius: 4,
+        }}
+      >
+        <TourCard borderRadius={4}>
+          <View>
+            <Favourite tour={tour} />
+            <TourInfoCardHeader tour={tour} />
+          </View>
+          <TourInfoCardDetails tour={tour} />
+          <TourInfoCardFooter navigation={navigation} tour={tour} />
+        </TourCard>
+      </View>
     </>
   );
 };

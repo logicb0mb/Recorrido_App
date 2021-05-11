@@ -34,7 +34,7 @@ export const TourDetailsDescriptionBox = ({ tour = {} }) => {
 
             <ClipPath id="clip">
               <G scale="1">
-                <Polygon points="0,35 415,0 415,335 0,370" />
+                <Polygon points="0,35 430,0 430,335 0,370" />
               </G>
             </ClipPath>
           </Defs>

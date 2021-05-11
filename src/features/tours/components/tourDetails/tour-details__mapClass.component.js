@@ -47,7 +47,7 @@ export class TourDetailsMap extends React.Component {
             }}
             onLayout={() =>
               this.mapRef.fitToCoordinates(coords, {
-                edgePadding: { top: 200, right: 200, bottom: 200, left: 200 },
+                edgePadding: { top: 125, right: 125, bottom: 125, left: 125 },
                 animated: true,
               })
             }

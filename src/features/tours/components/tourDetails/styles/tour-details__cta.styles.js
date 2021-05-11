@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 export const CTAContainer = styled(View)`
   position: relative;
   height: 550px;
+  ${'' /* background-color: #f2f2f2; */}
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -29,7 +30,8 @@ export const CTAImageGrid = styled(View)`
 `;
 
 export const CTALinearGradient = styled(LinearGradient)`
-  border-radius: 90;
+  border-radius: 75;
+  overflow: hidden;
   height: 150px;
   width: 150px;
   position: absolute;

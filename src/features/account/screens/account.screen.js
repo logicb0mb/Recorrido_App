@@ -30,7 +30,14 @@ export const AccountScreen = ({ navigation }) => {
           </SlideRight>
         </FadeInView>
       </TitleView>
-      <AccountContainer>
+      <AccountContainer
+        style={{
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.8,
+          shadowRadius: 2,
+        }}
+      >
         <AuthButton
           icon="login"
           mode="contained"

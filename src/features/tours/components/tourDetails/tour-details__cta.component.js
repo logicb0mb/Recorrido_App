@@ -20,8 +20,15 @@ import {
 export const TourDetailsCTA = ({ tour = {} }) => {
   return (
     <CTAContainer>
-      <CTACard>
-        <CTAImageGrid>
+      <CTACard elevation={20}>
+        <CTAImageGrid
+          style={{
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.8,
+            shadowRadius: 2,
+          }}
+        >
           <CTALinearGradient colors={['#45d9fd', '#4eefd1ff']} elevation={40}>
             <CTALogo
               source={require('../../../../../assets/img/logo_50.png')}

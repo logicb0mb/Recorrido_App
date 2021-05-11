@@ -37,12 +37,12 @@ export const TourDetailsReviews = ({ reviews = {} }) => {
 
             <ClipPath id="clip">
               <G scale="1">
-                <Polygon points="0,35 415,0 415,380 0,415" />
+                <Polygon points="0,35 430,0 430,380 0,415" />
               </G>
             </ClipPath>
           </Defs>
           <Polygon
-            points="0,35 415,0 415,380 0,415"
+            points="0,35 430,0 430,380 0,415"
             width="100%"
             height="100%"
             fill="url(#grad)"
@@ -57,7 +57,15 @@ export const TourDetailsReviews = ({ reviews = {} }) => {
               //   console.log(Array(item.rating));
               //   console.log(item);
               return (
-                <ReviewCard elevation={10}>
+                <ReviewCard
+                  style={{
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.5,
+                    shadowRadius: 2,
+                  }}
+                  elevation={10}
+                >
                   <ReviewUser>
                     <ReviewUserImage
                       source={{

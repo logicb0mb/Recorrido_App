@@ -17,13 +17,17 @@ export const CardHeader = styled(View)`
 export const TourCardCover = styled(SVGImage)`
   padding: ${(props) => props.theme.space[3]};
   background-color: #f7f7f7;
-  ${'' /* width: 100%;
-  height: 200px; */}
+  ${
+    '' /* width: 100%;
+  height: 200px; */
+  }
   position: relative;
 
   ${'' /* Added Styles */}
-  ${'' /* height: 100%;
-  width: 100%; */}
+  ${
+    '' /* height: 100%;
+  width: 100%; */
+  }
 `;
 
 export const HeadingTertiary = styled(Text)`
@@ -52,10 +56,10 @@ export const FlexView = styled(View)`
   width: 100%;
   font-size: 10px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 13%;
-  padding-right: 13%;
+  padding-left: 22%;
+  padding-right: 22%;
   padding-top: 5%;
   padding-bottom: 5%;
   ${'' /* flex-wrap: nowrap; */}
