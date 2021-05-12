@@ -1,5 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
 import { List, Avatar } from 'react-native-paper';
 
@@ -12,18 +15,48 @@ const SettingsItem = styled(List.Item)`
   padding: ${(props) => props.theme.space[3]};
 `;
 const AvatarContainer = styled.View`
-  padding: 20px;
   align-items: center;
+  margin-top: 20px;
 `;
 
 export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
+  const [photo, setPhoto] = useState(null);
+
+  const getProfilePicture = async (currentUser) => {
+    const photoUri = await AsyncStorage.getItem(`${currentUser._id}-photo`);
+    setPhoto(photoUri);
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      getProfilePicture(user);
+    }, [user])
+  );
+
   return (
     <SafeArea>
       <AvatarContainer>
-        <Avatar.Icon size={180} icon="human" backgroundColor="#45d9fd" />
+        <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+          {!photo && (
+            <Avatar.Image
+              size={180}
+              source={{
+                uri: `https://recorrido-shreyas.herokuapp.com/img/users/${user.photo}`,
+              }}
+              backgroundColor="#2182BD"
+            />
+          )}
+          {photo && (
+            <Avatar.Image
+              size={180}
+              source={{ uri: photo }}
+              backgroundColor="#2182BD"
+            />
+          )}
+        </TouchableOpacity>
         <Spacer position="top" size="large">
-          <Text variant="body">{user.name}</Text>
+          <Text variant="label">{user.name}</Text>
         </Spacer>
         <Spacer position="top" size="large">
           <Text variant="label">{user.email}</Text>

@@ -20,6 +20,7 @@
     "css-to-react-native": "^3.0.0",
     "eslint": "^7.24.0",
     "expo": "^41.0.0",
+    "expo-camera": "~11.0.2",
     "expo-font": "~9.1.0",
     "expo-haptics": "~10.0.0",
     "expo-linear-gradient": "~9.1.0",
