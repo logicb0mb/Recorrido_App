@@ -43,6 +43,7 @@ export const ToursContextProvider = ({ children }) => {
       } else {
         // console.log('No tour found for this location');
         setIsLoading(false);
+        setTours([]);
         setError('No tour found for this location');
       }
     } catch (err) {
