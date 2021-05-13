@@ -71,6 +71,12 @@ export const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('Favourites')}
         />
         <SettingsItem
+          title="My Bookings"
+          description="View your booked tours"
+          left={(props) => <List.Icon {...props} color="black" icon="heart" />}
+          onPress={() => navigation.navigate('MyBookings')}
+        />
+        <SettingsItem
           title="Logout"
           left={(props) => <List.Icon {...props} color="black" icon="door" />}
           onPress={onLogout}
