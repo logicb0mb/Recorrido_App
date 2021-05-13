@@ -12,7 +12,7 @@ const AnimationContainer = styled(View)`
 const StyledLottieView = styled(LottieView)`
   width: 100%;
   height: 100%;
-  background-color: #f2f2f2;
+  background-color: #fff;
 `;
 
 const ErrorText = styled(Text)`
