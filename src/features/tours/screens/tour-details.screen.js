@@ -11,7 +11,7 @@ import { TourDetailsMap } from '../components/tourDetails/tour-details__mapClass
 import { TourDetailsReviews } from '../components/tourDetails/tour-details__reviews.component';
 import { TourDetailsCTA } from '../components/tourDetails/tour-details__cta.component';
 
-export const TourDetailsScreen = ({ route }) => {
+export const TourDetailsScreen = ({ navigation, route }) => {
   const { tour } = route.params;
   const [reviews, setReviews] = useState([]);
 
@@ -33,7 +33,7 @@ export const TourDetailsScreen = ({ route }) => {
         <TourDetailsGallery tour={tour} />
         <TourDetailsMap tour={tour} />
         <TourDetailsReviews reviews={reviews} />
-        <TourDetailsCTA tour={tour} />
+        <TourDetailsCTA tour={tour} navigation={navigation} />
       </ScrollView>
     </SafeArea>
   );

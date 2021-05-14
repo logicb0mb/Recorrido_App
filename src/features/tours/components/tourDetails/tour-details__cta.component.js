@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Heading } from '../../../../components/typography/heading.component';
-
+import { CartContext } from '../../../../services/cart/cart.context';
 import {
   CTAContainer,
   CTACard,
@@ -17,7 +17,8 @@ import {
   ButtonText,
 } from './styles/tour-details__cta.styles.js';
 
-export const TourDetailsCTA = ({ tour = {} }) => {
+export const TourDetailsCTA = ({ navigation, tour = {} }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <CTAContainer>
       <CTACard elevation={20}>
@@ -55,7 +56,12 @@ export const TourDetailsCTA = ({ tour = {} }) => {
           </CTAHeading>
           <CTAText>{`${tour.duration} days. 1 adventure. Infinite memories. Make it yours today!`}</CTAText>
         </CTAContent>
-        <CTAButton onPress={() => alert('Go to Booking')}>
+        <CTAButton
+          onPress={() => {
+            addToCart(tour);
+            navigation.navigate('Checkout');
+          }}
+        >
           <ButtonText>Book Tour Now!</ButtonText>
         </CTAButton>
       </CTACard>
