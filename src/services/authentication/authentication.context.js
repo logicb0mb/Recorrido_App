@@ -11,6 +11,7 @@ export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
+  const [jwtToken, setJwtToken] = useState(null);
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -22,6 +23,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       if (u.status && u.status === 'success') {
         console.log(`Response success : ${u.status}`);
         setIsAuthenticated(true);
+        setJwtToken(u.token);
         setUser(u.data.user);
         setIsLoading(false);
       } else {
@@ -52,6 +54,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       if (u.status && u.status === 'success') {
         console.log(`Response success : ${u.status}`);
         setIsAuthenticated(true);
+        setJwtToken(u.token);
         setUser(u.data.user);
         setIsLoading(false);
       } else {
@@ -84,6 +87,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       value={{
         isAuthenticated,
         user,
+        jwtToken,
         isLoading,
         error,
         onLogin,

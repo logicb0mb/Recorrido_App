@@ -13,7 +13,7 @@ export const LogoContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 export const BackIconContainer = styled(View)`
   justify-content: center;
