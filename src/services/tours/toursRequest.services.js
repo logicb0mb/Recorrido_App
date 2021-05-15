@@ -1,11 +1,5 @@
 import axios from 'axios';
 
-// export const toursRequest = async () => {
-//   const res = await fetch(
-//     `${host}/placesNearby?location=${location}&mock=${isMock}`
-//   );
-//   return await res.json();
-// };
 export const toursRequest = async (location) => {
   try {
     if (location === 'alltours') {

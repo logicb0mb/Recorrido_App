@@ -22,7 +22,8 @@ export const CartIcon = styled(Avatar.Icon).attrs({
 `;
 
 export const CreditCardContainer = styled.View`
-  padding: 10px;
+  padding: 5px;
+  margin-top: -10px;
 `;
 
 export const PayButton = styled(Button).attrs({
