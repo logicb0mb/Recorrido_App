@@ -5,8 +5,8 @@ import { Feather } from '@expo/vector-icons';
 
 import { ToursNavigator } from './tours.navigator';
 import { SettingsNavigator } from './settings.navigator';
+import { CheckoutNavigator } from './checkout.navigator';
 import { MapScreen } from '../../features/map/screens/map.screen';
-import { CheckoutScreen } from '../../features/checkout/screens/checkout.screen';
 
 import { ToursContextProvider } from '../../services/tours/toursRequest.context';
 import { LocationContextProvider } from '../../services/location/location.context';
@@ -44,7 +44,7 @@ export const AppNavigator = () => (
             }}
           >
             <Tab.Screen name="Tours" component={ToursNavigator} />
-            <Tab.Screen name="Checkout" component={CheckoutScreen} />
+            <Tab.Screen name="Checkout" component={CheckoutNavigator} />
             <Tab.Screen name="Map" component={MapScreen} />
             <Tab.Screen name="Settings" component={SettingsNavigator} />
           </Tab.Navigator>

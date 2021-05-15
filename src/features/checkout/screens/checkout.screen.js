@@ -17,6 +17,7 @@ import {
   CreditCardContainer,
   PayButton,
   ClearButton,
+  PaymentProcessing,
 } from '../components/checkout.styles';
 import { TourInfoCard } from '../../tours/components/tourCard/tour-infocard.component';
 import { CompactTourInfo } from '../../../components/tour/compact-tour-info.component';
@@ -26,14 +27,30 @@ export const CheckoutScreen = ({ navigation }) => {
   const { cart, tour, clearCart } = useContext(CartContext);
   const { user, jwtToken } = useContext(AuthenticationContext);
   const [card, setCard] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onPay = () => {
+    setIsLoading(true);
     if (!card || !card.id) {
-      console.log('some error');
+      setIsLoading(false);
+      navigation.navigate('CheckoutError', {
+        error: 'Please fill in a valid credit card',
+      });
       return;
     }
     const tourPriceForStripe = tour.price * 100;
-    payRequest(card.id, tourPriceForStripe, user.name, tour.id, jwtToken);
+    payRequest(card.id, tourPriceForStripe, user.name, tour.id, jwtToken)
+      .then((result) => {
+        setIsLoading(false);
+        clearCart();
+        navigation.navigate('CheckoutSuccess');
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        navigation.navigate('CheckoutError', {
+          error: err,
+        });
+      });
   };
 
   if (!cart.length || !tour) {
@@ -49,19 +66,38 @@ export const CheckoutScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
+      {isLoading && <PaymentProcessing />}
       <ScrollView>
         {/* <TourInfoCard tour={tour} /> */}
         <CheckoutTourDetails tour={tour} navigation={navigation} />
         <CreditCardContainer>
-          <CreditCard name={user.name} onSuccess={setCard} />
+          <CreditCard
+            name={user.name}
+            onSuccess={setCard}
+            onError={() =>
+              navigation.navigate('CheckoutError', {
+                error: 'Something went wrong processing your credit card',
+              })
+            }
+          />
         </CreditCardContainer>
         <Spacer position="top" size="large">
-          <PayButton icon="cash-usd" mode="contained" onPress={onPay}>
+          <PayButton
+            disabled={isLoading}
+            icon="cash-usd"
+            mode="contained"
+            onPress={onPay}
+          >
             Pay
           </PayButton>
         </Spacer>
         <Spacer position="top" size="large">
-          <ClearButton icon="cart-off" mode="contained" onPress={clearCart}>
+          <ClearButton
+            disabled={isLoading}
+            icon="cart-off"
+            mode="contained"
+            onPress={clearCart}
+          >
             Clear Cart
           </ClearButton>
         </Spacer>
