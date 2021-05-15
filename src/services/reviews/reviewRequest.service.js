@@ -1,10 +1,8 @@
 import axios from 'axios';
-
+import { host, isMock } from '../../utils/env';
 export const reviewsRequest = async (tourID) => {
   try {
-    let response = await axios.get(
-      `https://recorrido-shreyas.herokuapp.com/api/v1/tours/${tourID}/reviews`
-    );
+    let response = await axios.get(`${host}/api/v1/tours/${tourID}/reviews`);
 
     // console.log(response);
     const tourReviews = response.data.data.data; //array of all tour objects

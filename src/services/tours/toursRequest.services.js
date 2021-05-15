@@ -1,11 +1,11 @@
 import axios from 'axios';
-
+import { host, isMock } from '../../utils/env';
 export const toursRequest = async (location) => {
   try {
     if (location === 'alltours') {
       // 1) Get tours data from API
       let response = await axios.get(
-        'https://recorrido-shreyas.herokuapp.com/api/v1/tours?sort=-ratingsAverage'
+        `${host}/api/v1/tours?sort=-ratingsAverage`
       );
 
       // console.log(response);
@@ -19,7 +19,7 @@ export const toursRequest = async (location) => {
       return allTours;
     } else {
       const response = await axios.get(
-        `https://recorrido-shreyas.herokuapp.com/api/v1/tours/tours-within/500/center/${location}/unit/mi`
+        `${host}/api/v1/tours/tours-within/500/center/${location}/unit/mi`
       );
       const toursWithin = response.data.data.data;
       //   console.log(toursWithin);
@@ -41,11 +41,3 @@ export const tourTransform = (results) => {
 
   return mappedResults;
 };
-
-// toursRequest()
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });

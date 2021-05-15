@@ -1,14 +1,12 @@
 import axios from 'axios';
+import { host, isMock } from '../../utils/env';
 
 export const loginRequest = async (email, password) => {
   try {
-    const login = await axios.post(
-      `https://recorrido-shreyas.herokuapp.com/api/v1/users/login`,
-      {
-        email: email,
-        password: password,
-      }
-    );
+    const login = await axios.post(`${host}/api/v1/users/login`, {
+      email: email,
+      password: password,
+    });
     return login.data;
   } catch (error) {
     console.log(error.response.data);
@@ -23,15 +21,12 @@ export const registerRequest = async (
   repeatedPassword
 ) => {
   try {
-    const signup = await axios.post(
-      `https://recorrido-shreyas.herokuapp.com/api/v1/users/signup`,
-      {
-        name: name,
-        email: email,
-        password: password,
-        passwordConfirm: repeatedPassword,
-      }
-    );
+    const signup = await axios.post(`${host}/api/v1/users/signup`, {
+      name: name,
+      email: email,
+      password: password,
+      passwordConfirm: repeatedPassword,
+    });
     return signup.data;
   } catch (error) {
     console.log(error.response.data);
@@ -41,9 +36,7 @@ export const registerRequest = async (
 
 export const logoutRequest = async () => {
   try {
-    let logout = await axios.get(
-      `https://recorrido-shreyas.herokuapp.com/api/v1/users/logout`
-    );
+    let logout = await axios.get(`${host}/api/v1/users/logout`);
     return logout;
   } catch (error) {
     console.log(error);

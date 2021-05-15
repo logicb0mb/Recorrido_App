@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 const liveHost = 'https://recorrido-shreyas.herokuapp.com';
-const localHost = 'http://localhost:5001/mealstogo-8a049/us-central1';
+const localHost = 'http://localhost:3000/';
 
 export const isAndroid = Platform.OS === 'android';
 export const isDevelopment = process.env.NODE_ENV === 'development';

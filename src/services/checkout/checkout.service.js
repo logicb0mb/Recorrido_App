@@ -1,42 +1,11 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
 import createStripe from 'stripe-client';
+import { host, isMock } from '../../utils/env';
 
 const stripe = createStripe('pk_test_2ZsRGpgxvRAu9I6gRIoxbGds00cHSUhQoJ');
 
 export const cardTokenRequest = (card) => stripe.createToken({ card });
-
-// export const payRequest = (token, amount, name, tourId, jwtToken) => {
-//   console.log(jwtToken);
-//   console.log(tourId);
-
-//   return fetch(
-//     `https://recorrido-shreyas.herokuapp.com/api/v1/booking/pay/${tourId}`,
-//     {
-//       headers: {
-//         Authorization: `Bearer ${jwtToken}`,
-//       },
-//       body: JSON.stringify({
-//         token,
-//         name,
-//         amount,
-//         tourId,
-//       }),
-//       method: 'POST',
-//     }
-//   )
-//     .then((res) => {
-//       if (res.status > 200) {
-//         return Promise.reject('something went wrong processing your payment');
-//       }
-//       console.log(`here:  ${res}`);
-//       return res;
-//     })
-//     .catch((err) => {
-//       console.log(`Error here:  ${err.message}`);
-//       return err;
-//     });
-// };
 
 export const payRequest = (token, amount, name, tourId, jwtToken) => {
   console.log(jwtToken);
@@ -47,7 +16,7 @@ export const payRequest = (token, amount, name, tourId, jwtToken) => {
 
   return axios
     .post(
-      `https://recorrido-shreyas.herokuapp.com/api/v1/booking/pay/${tourId}`,
+      `${host}/api/v1/booking/pay/${tourId}`,
       {
         token,
         name,

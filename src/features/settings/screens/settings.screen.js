@@ -44,14 +44,14 @@ export const SettingsScreen = ({ navigation }) => {
               source={{
                 uri: `https://recorrido-shreyas.herokuapp.com/img/users/${user.photo}`,
               }}
-              backgroundColor="#2182BD"
+              backgroundColor="#45d9fd"
             />
           )}
           {photo && (
             <Avatar.Image
               size={180}
               source={{ uri: photo }}
-              backgroundColor="#2182BD"
+              backgroundColor="#45d9fd"
             />
           )}
         </TouchableOpacity>
