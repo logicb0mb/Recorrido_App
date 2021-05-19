@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
 
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
 
@@ -24,17 +23,9 @@ export const FavouritesScreen = ({ navigation }) => {
         data={favourites}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('TourDetail', {
-                  tour: item,
-                })
-              }
-            >
-              <Spacer position="bottom" size="large">
-                <TourInfoCard tour={item} />
-              </Spacer>
-            </TouchableOpacity>
+            <Spacer position="bottom" size="large">
+              <TourInfoCard tour={item} navigation={navigation} />
+            </Spacer>
           );
         }}
         keyExtractor={(item) => item.name}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
+
 import { bookingsRequest } from '../../../services/bookings/bookingsRequest.service';
 import { SafeArea } from '../../../components/utility/safe-area.component';
 import { Text } from '../../../components/typography/text.component';
@@ -31,17 +31,9 @@ export const BookingsScreen = ({ navigation }) => {
         data={toursBooked}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('TourDetail', {
-                  tour: item,
-                })
-              }
-            >
-              <Spacer position="bottom" size="large">
-                <TourInfoCard tour={item} />
-              </Spacer>
-            </TouchableOpacity>
+            <Spacer position="bottom" size="large">
+              <TourInfoCard tour={item} navigation={navigation} />
+            </Spacer>
           );
         }}
         keyExtractor={(item) => item.name}

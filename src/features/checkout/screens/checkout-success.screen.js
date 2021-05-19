@@ -23,7 +23,7 @@ export const CheckoutSuccessScreen = () => (
       <Text variant="label">Success!</Text>
       <SuccessText variant="label">
         Your Booking was successfull! Please check your email for a
-        confirmation. If your booking does't show up in Settings tab under My
+        confirmation. If your booking doesn't show up in Settings tab under My
         Bookings section immediately, please check later.
       </SuccessText>
     </CartIconContainer>
