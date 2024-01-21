@@ -69,7 +69,7 @@ Successful Booking             |  User Profile
 :-------------------------:|:-------------------------:
 <img src="https://github.com/logicb0mb/Recorrido_App/assets/45527846/7d66af58-acab-4111-95e7-c97490736517" width="50%" height="50%" /> | <img src="https://github.com/logicb0mb/Recorrido_App/assets/45527846/4b2f7f02-c388-4867-add7-38dd0d48462f" width="50%" height="50%" />
 
-App running in an Android Phone| 
+App running on an Android Phone| 
 :-------------------------:|
 <p align="center">
 <img src="https://github.com/logicb0mb/Recorrido_App/assets/45527846/59e09a40-1835-41b1-9898-bd2749cd90df" width="25%" height="25%" />
